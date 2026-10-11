@@ -1,0 +1,60 @@
+/* Local comparison study: reference-scale print wear, with no paper-cloud layer.
+   All marks are distinct windows into the two supplied 68x535 extractions. */
+.home-micro-wear .micro-wear-perimeter,
+.home-micro-wear .micro-wear-focal {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: screen;
+}
+.home-micro-wear .micro-wear-perimeter {
+  inset: -64px -54px 0;
+  overflow: clip; /* Rotated fragments never enlarge the viewport. */
+}
+.home-micro-wear .micro-wear-focal {
+  left: 38px; top: 4px; width: 430px; height: 385px;
+  /* Keep the selections on the black side of the composition. */
+  -webkit-mask-image: linear-gradient(90deg, #000 80%, transparent);
+  mask-image: linear-gradient(90deg, #000 80%, transparent);
+}
+.home-micro-wear .micro-mark {
+  position: absolute;
+  display: block;
+  left: var(--x); top: var(--y);
+  width: var(--w); height: var(--h);
+  background-image: url('bordas/reference-extraction/la_likbor_riscos_esquerda.png');
+  background-size: 68px 535px; /* Native size: no enlarged grains or lines. */
+  background-position: var(--sx) var(--sy);
+  background-repeat: no-repeat;
+  opacity: var(--strength, .62);
+  filter: sepia(.35) saturate(.7) brightness(.82);
+  transform: rotate(var(--turn, 0deg));
+  transform-origin: center;
+  /* Only blend the selection ends. Never draw new scratches or add blur. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 3px, #000 calc(100% - 3px), transparent), linear-gradient(180deg, transparent, #000 4px, #000 calc(100% - 4px), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 3px, #000 calc(100% - 3px), transparent), linear-gradient(180deg, transparent, #000 4px, #000 calc(100% - 4px), transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.home-micro-wear .micro-mark.from-right {
+  background-image: url('bordas/reference-extraction/la_likbor_riscos_direita.png');
+}
+@media (min-width: 701px) and (max-width: 1050px) {
+  .home-micro-wear .micro-wear-perimeter { inset-inline: -30px; }
+  .home-micro-wear .micro-wear-focal { left: 10px; width: 38%; height: 325px; }
+}
+@media (max-width: 700px) {
+  .home-micro-wear .micro-wear-perimeter { inset: -66px -12px 0; }
+  .home-micro-wear .micro-wear-focal {
+    left: 5px; top: 0; width: calc(100% - 10px); height: 222px;
+    -webkit-mask-image: linear-gradient(180deg, #000 160px, transparent);
+    mask-image: linear-gradient(180deg, #000 160px, transparent);
+  }
+  .home-micro-wear .micro-mark {
+    left: var(--mobile-x, var(--x)); top: var(--mobile-y, var(--y));
+  }
+  /* Interior peripheral marks stay beside the upper lettering; none crosses
+     the mobile portrait, which begins further down the stacked hero. */
+  .home-micro-wear .micro-mark.inward { top: var(--mobile-y); }
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 100" fill="none">
+  <defs><linearGradient id="bone-bronze" x1="13" y1="2" x2="42" y2="96" gradientUnits="userSpaceOnUse"><stop stop-color="#806c51"/><stop offset=".32" stop-color="#c4ac83"/><stop offset=".68" stop-color="#a58c68"/><stop offset="1" stop-color="#79634c"/></linearGradient></defs>
+  <g stroke="url(#bone-bronze)" stroke-linecap="round" stroke-width="1"><path d="M30 3v15m0 3v24m0 3v26m0 3v20M6 32h16m3 0h11m3 0h15"/><path d="m16 18 10 10m8 8 10 10M16 46l10-10m8-8 10-10" opacity=".7"/><path d="m30 20 3 9 9 3-9 3-3 9-3-9-9-3 9-3Z" stroke-width=".75"/><path d="M25 68h10m-7 8h4" opacity=".75"/></g>
+  <circle cx="30" cy="32" r="1.15" fill="#c4ac83" opacity=".85"/>
+</svg>

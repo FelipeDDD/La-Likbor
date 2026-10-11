@@ -1,64 +1,151 @@
-/* Hero study 02: retain the black homepage and the supplied logo 3 asset. */
-.home-dark-hero .site-header { grid-template-columns: 1fr 60px 1fr; position: relative; z-index: 4; }
-.home-dark-hero .hero-header-sigil { justify-self: center; align-self: start; width: 43px; height: 77px; margin-top: 10px; opacity: .8; pointer-events: none; }
-.home-dark-hero .demo-label { color: #ab967b; font-size: 8px; letter-spacing: 2px; }
-.home-dark-hero .site-header nav a { color: #c8b9a3; }
+/* Dark hero 07: broken paper edges and a localized rubbed-paper logo surround. */
+.home-dark-hero {
+  --hero-frame-overlay: url('bordas/worn-paper-edge-v7.png');
+  --hero-organic-overlay: url('bordas/worn-paper-source-v7.png');
+  --hero-frame-opacity: .60;
+  --hero-organic-opacity: .34;
+}
+.home-dark-hero .site-header { height: 64px; grid-template-columns: 1fr 60px 1fr; position: relative; z-index: 4; }
+.home-dark-hero .hero-header-sigil { justify-self: center; align-self: start; width: 38px; height: 70px; margin-top: 8px; opacity: .75; pointer-events: none; }
+.home-dark-hero .site-header nav a { color: #c8b9a3; font-size: 10px; letter-spacing: 2.8px; font-weight: 400; }
 .home-dark-hero .site-header nav a:hover { color: #e0cfb5; }
 
-/* Remove the radial black veil and widen the fully visible region. Masking
-   handles the edge transition; the remaining overlay only bridges the left
-   text area and the lowest edge. The source image remains unfiltered. */
+/* The photograph extends behind the header and moves toward the centre,
+   leaving a dark margin for the side copy. Only the edges are masked. */
+.home-dark-hero .home-hero { min-height: 640px; overflow: visible; }
 .home-dark-hero .home-portrait {
-  --portrait-mask-x: linear-gradient(90deg, transparent, #000 17%, #000 93%, transparent);
-  --portrait-mask-y: linear-gradient(180deg, transparent, #000 6%, #000 91%, transparent);
+  inset: -64px 12% 0 auto;
+  width: 56%;
+  --portrait-mask-x: linear-gradient(90deg, transparent, #0008 3%, #000 10%, #000 90%, #0008 97%, transparent);
+  --portrait-mask-y: linear-gradient(180deg, transparent, #000 4%, #000 80%, #000000e6 88%, #0008 95%, transparent);
+  /* The small lower-left ellipse protects the full hand while the broader
+     scene ellipse softens the rectangle's corners. Neither dims the skull. */
+  --scene-mask: radial-gradient(ellipse 70% 70% at 52% 48%, #000 64%, transparent 100%);
+  --hand-mask: radial-gradient(ellipse 24% 28% at 20% 76%, #000 68%, transparent 100%);
+  -webkit-mask-image: var(--portrait-mask-x), var(--portrait-mask-y), var(--hand-mask), var(--scene-mask);
+  mask-image: var(--portrait-mask-x), var(--portrait-mask-y), var(--hand-mask), var(--scene-mask);
+  -webkit-mask-composite: source-in, source-in, source-over;
+  mask-composite: intersect, intersect, add;
 }
+.home-dark-hero .home-portrait img { object-position: center top; filter: none; }
 .home-dark-hero .home-portrait::after {
-  background:
-    linear-gradient(90deg, #000, #0006 10%, transparent 30%),
-    linear-gradient(180deg, transparent 83%, #0009);
+  /* No dark veil over the skull, hand, candle or room. Edge masks suffice. */
+  background: none;
 }
-.home-dark-hero .home-hero::before { background: url('grain.svg'); opacity: .23; }
-.home-dark-hero .home-logo { isolation: isolate; }
-.home-dark-hero .home-logo::before { content: ''; position: absolute; inset: 0; z-index: -1; background: url('hero-orbit.svg') center / auto 100% no-repeat; opacity: .45; pointer-events: none; }
-.home-dark-hero .home-introduction > p { color: #c7baa7; font-size: 10px; font-weight: 400; line-height: 2.1; letter-spacing: 2.4px; }
-.home-dark-hero .home-rule { gap: 13px; margin: 15px 0; }
-.home-dark-hero .home-rule img { display: block; width: 24px; height: 39px; opacity: .85; }
+.home-dark-hero .home-hero::before { background: url('grain.svg'); inset: 0 68% 0 0; opacity: .1; }
+.home-dark-hero .home-copy { position: relative; isolation: isolate; width: 46%; padding: 50px 0 40px 44px; }
+.home-dark-hero .home-copy::before {
+  content: ''; position: absolute; top: 4px; left: -58px; width: 540px; height: 340px; z-index: -1;
+  background: var(--hero-organic-overlay) left bottom / 720px 480px no-repeat;
+  opacity: var(--hero-organic-opacity); mix-blend-mode: screen; filter: sepia(.4) saturate(.5);
+  -webkit-mask-image: url('paper-breakup.svg'), radial-gradient(ellipse 64% 66% at 27% 50%, #000 26%, #0009 58%, transparent 83%);
+  mask-image: url('paper-breakup.svg'), radial-gradient(ellipse 64% 66% at 27% 50%, #000 26%, #0009 58%, transparent 83%);
+  -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+  pointer-events: none;
+}
+.home-dark-hero .home-copy::after {
+  content: ''; position: absolute; top: 6px; left: 62px; width: 365px; height: 365px; z-index: -1;
+  background: url('hero-orbit.svg') center / contain no-repeat; opacity: .75; pointer-events: none;
+}
+.home-dark-hero .home-logo { width: min(430px, 100%); isolation: isolate; margin-bottom: 34px; }
+.home-dark-hero .home-logo::before { content: none; }
+.home-dark-hero .home-introduction > p { color: #c7baa7; font-size: 10px; font-weight: 400; line-height: 2.1; letter-spacing: 2.3px; }
+.home-dark-hero .home-rule { gap: 13px; margin: 14px 0; }
+.home-dark-hero .home-rule img { display: block; width: 24px; height: 38px; opacity: .85; }
 .home-dark-hero .home-rule::before, .home-dark-hero .home-rule::after { background: linear-gradient(90deg, #927959, #92795922); }
 .home-dark-hero .home-actions a { color: #d0c2af; font-weight: 400; font-size: 9px; letter-spacing: 1.7px; border-color: #998061; background: #0003; }
-.home-dark-hero .home-motto { top: 29%; right: 17px; max-width: 80px; color: #bbaa91; font-size: 9px; font-weight: 400; line-height: 2.1; letter-spacing: 2.5px; text-shadow: 0 1px 8px #0009; }
-.home-dark-hero .home-motto::after { content: ''; position: absolute; left: 0; top: 70px; width: 15px; height: 1px; background: #9b8261; }
-.home-dark-hero .home-motto .hero-inverted-sigil { width: 36px; height: 90px; margin-top: 26px; transform: rotate(180deg); opacity: .9; }
+.home-dark-hero .home-motto { top: 33%; right: 14px; width: 77px; max-width: 80px; color: #c1ad90; font-size: 9px; font-weight: 400; line-height: 2.15; letter-spacing: 2.3px; text-shadow: 0 1px 8px #0009; }
+.home-dark-hero .home-motto::after { content: ''; position: absolute; left: 0; top: 72px; width: 15px; height: 1px; background: #9b8261; }
+.home-dark-hero .home-motto .hero-inverted-sigil { width: 37px; height: 94px; margin-top: 27px; transform: rotate(180deg); opacity: .88; }
 /* Side scratches stay outside the content column. Extra abrasion in the hero
    is restricted to a narrow strip at each outer edge, away from face/logo. */
-.home-dark-hero .page-frame::before, .home-dark-hero .page-frame::after { opacity: .84; }
+.home-dark-hero .page-frame::before, .home-dark-hero .page-frame::after { width: 104px; background-image: url('hero-wear.svg'); background-size: 104px 660px; opacity: .88; }
+.home-dark-hero .page-frame::after { background-position: left 223px; transform: scaleX(-1); }
+.home-dark-hero .page-frame::before, .home-dark-hero .page-frame::after {
+  /* The older branch texture begins below the paper treatment. */
+  -webkit-mask-image: linear-gradient(180deg, transparent 704px, #000 760px);
+  mask-image: linear-gradient(180deg, transparent 704px, #000 760px);
+}
 .home-dark-hero .home-hero::after {
-  content: ''; position: absolute; inset: 0 -30px; z-index: 2; pointer-events: none;
-  background: url('scratches.svg') left top / 70px 430px repeat-y, url('scratches.svg') right 130px / 70px 430px repeat-y;
-  -webkit-mask-image: linear-gradient(90deg, #000, transparent 4%, transparent 96%, #000);
-  mask-image: linear-gradient(90deg, #000, transparent 4%, transparent 96%, #000);
-  opacity: .3;
+  content: ''; position: absolute; inset: -64px -54px 0; z-index: 2; pointer-events: none;
+  background: var(--hero-frame-overlay) center / 100% 100% no-repeat;
+  -webkit-mask-image: url('paper-breakup.svg'), linear-gradient(90deg, #000 2.5%, transparent 6%, transparent 94%, #000 97.5%), linear-gradient(180deg, #0007 3%, transparent 8%, transparent 91%, #000b 97%);
+  mask-image: url('paper-breakup.svg'), linear-gradient(90deg, #000 2.5%, transparent 6%, transparent 94%, #000 97.5%), linear-gradient(180deg, #0007 3%, transparent 8%, transparent 91%, #000b 97%);
+  -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+  -webkit-mask-composite: source-in, source-over; mask-composite: intersect, add;
+  opacity: var(--hero-frame-opacity); mix-blend-mode: screen; filter: sepia(.4) saturate(.5);
 }
 @media (max-width: 1050px) and (min-width: 701px) {
-  .home-dark-hero .site-header { grid-template-columns: 1fr 42px auto; gap: 15px; }
-  .home-dark-hero .hero-header-sigil { width: 36px; height: 70px; }
-  .home-dark-hero .demo-label { font-size: 7px; letter-spacing: 1.4px; }
-  .home-dark-hero .home-actions a { font-size: 8px; letter-spacing: 1px; }
+  .home-dark-hero .site-header { grid-template-columns: 1fr 42px 1fr; gap: 15px; }
+  .home-dark-hero .hero-header-sigil { width: 34px; height: 65px; }
+  .home-dark-hero .home-hero { min-height: 575px; }
+  .home-dark-hero .home-copy { width: 48%; padding-left: 20px; padding-top: 45px; }
+  .home-dark-hero .home-copy::before {
+    left: -35px; width: 340px; height: 290px; top: 0;
+    background-size: 620px 413px;
+  }
+  .home-dark-hero .home-copy::after { left: 10px; width: 290px; height: 290px; top: 12px; }
+  .home-dark-hero .home-hero::after { inset-inline: -30px; }
+  .home-dark-hero .page-frame::before, .home-dark-hero .page-frame::after {
+    -webkit-mask-image: linear-gradient(180deg, transparent 639px, #000 710px);
+    mask-image: linear-gradient(180deg, transparent 639px, #000 710px);
+  }
+  .home-dark-hero .home-portrait { inset-inline: auto 0; width: 64%; }
+  .home-dark-hero .home-actions { gap: 9px; }
+  .home-dark-hero .home-actions a { font-size: 8px; letter-spacing: .9px; padding-inline: 10px; }
+  .home-dark-hero .home-introduction { padding-left: 0; }
 }
 @media (max-width: 700px) {
-  .home-dark-hero .site-header { min-height: 74px; padding-top: 0; grid-template-columns: 1fr; gap: 0; }
+  .home-dark-hero { --hero-frame-opacity: .50; --hero-organic-opacity: .3; }
+  .home-dark-hero .site-header { height: auto; min-height: 66px; padding-top: 0; grid-template-columns: 1fr; gap: 0; }
   .home-dark-hero .site-header nav { grid-row: 1; grid-column: 1; padding: 0; align-self: center; }
   .home-dark-hero .hero-header-sigil { display: none; }
-  .home-dark-hero .demo-label { display: none; }
-  .home-dark-hero .home-portrait {
-    --portrait-mask-x: linear-gradient(90deg, transparent, #000 10%, #000 92%, transparent);
-    --portrait-mask-y: linear-gradient(180deg, transparent, #000 8%, #000 90%, transparent);
+  .home-dark-hero .site-header nav a { font-size: 9px; letter-spacing: 2px; }
+  .home-dark-hero .home-hero { min-height: 0; overflow: hidden; }
+  .home-dark-hero .home-copy { display: contents; }
+  .home-dark-hero .home-copy::before, .home-dark-hero .home-copy::after { content: none; }
+  .home-dark-hero .home-logo { width: min(310px, calc(100% - 20px)); margin: 14px auto 0; }
+  .home-dark-hero .home-logo::before {
+    content: ''; position: absolute; inset: -10px -20px; z-index: -1;
+    background: var(--hero-organic-overlay) left bottom / 460px 307px no-repeat;
+    opacity: var(--hero-organic-opacity); mix-blend-mode: screen; filter: sepia(.4) saturate(.5);
+    -webkit-mask-image: url('paper-breakup.svg'), radial-gradient(ellipse at 28% 50%, #000 24%, #0008 53%, transparent 76%);
+    mask-image: url('paper-breakup.svg'), radial-gradient(ellipse at 28% 50%, #000 24%, #0008 53%, transparent 76%);
+    -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+    -webkit-mask-composite: source-in; mask-composite: intersect;
+    pointer-events: none;
   }
-  .home-dark-hero .home-portrait::after { background: linear-gradient(180deg, transparent 84%, #0009); }
+  .home-dark-hero .home-logo::after {
+    content: ''; position: absolute; inset: 0; z-index: -1;
+    background: url('hero-orbit.svg') center / auto 106% no-repeat; opacity: .75; pointer-events: none;
+  }
+  .home-dark-hero .home-portrait {
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 1440 / 1710;
+    --portrait-mask-x: linear-gradient(90deg, transparent, #0009 2%, #000 6%, #000 94%, #0009 98%, transparent);
+    --portrait-mask-y: linear-gradient(180deg, transparent, #000 4%, #000 80%, #000000e6 88%, #0008 95%, transparent);
+  }
+  .home-dark-hero .home-portrait img { object-position: center top; }
+  .home-dark-hero .home-portrait::after { background: none; }
+  .home-dark-hero .home-introduction { max-width: none; padding-top: 12px; }
   .home-dark-hero .home-introduction > p { font-size: 9px; line-height: 2; letter-spacing: 1.8px; }
   .home-dark-hero .home-rule { width: 84%; margin: 8px auto; }
   .home-dark-hero .home-rule img { width: 21px; height: 34px; }
   .home-dark-hero .home-actions a { font-size: 8px; letter-spacing: 1.2px; }
-  .home-dark-hero .home-logo::before { opacity: .35; }
-  .home-dark-hero .page-frame::before, .home-dark-hero .page-frame::after { opacity: .65; }
-  .home-dark-hero .home-hero::after { inset-inline: -12px; opacity: .2; background-size: 45px 400px; }
+  .home-dark-hero .page-frame::before, .home-dark-hero .page-frame::after { width: 48px; opacity: .75; background-size: 60px 480px; }
+  .home-dark-hero .page-frame::before, .home-dark-hero .page-frame::after {
+    -webkit-mask-image: linear-gradient(180deg, transparent 840px, #000 900px);
+    mask-image: linear-gradient(180deg, transparent 840px, #000 900px);
+  }
+  .home-dark-hero .home-hero::after {
+    inset: 0 -12px;
+    /* Crop distinct source edges without stretching or mirroring the fibers. */
+    background-image: var(--hero-frame-overlay), var(--hero-frame-overlay);
+    background-size: auto 100%; background-position: left -16px top, right -16px top; background-repeat: no-repeat;
+    -webkit-mask-image: url('paper-breakup.svg'), linear-gradient(90deg, #000 3%, transparent 9%, transparent 91%, #000 97%);
+    mask-image: url('paper-breakup.svg'), linear-gradient(90deg, #000 3%, transparent 9%, transparent 91%, #000 97%);
+    -webkit-mask-composite: source-in; mask-composite: intersect;
+  }
 }

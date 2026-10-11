@@ -1,5 +1,77 @@
 # La Likbør — Shop, segunda iteração
 
+## Sistema de moldura dark — base contínua + complemento
+
+Execute `node dev-server.mjs` e abra o [hero refinado](http://127.0.0.1:4173/homepage-dark-frame-refined.html) ou o [estudo do card mestre](http://127.0.0.1:4173/dark-frame-card-study.html).
+
+A versão Acentuada permanece intacta como base oficial do módulo dark. Uma camada separada reaproveita quatro áreas contínuas do mesmo material para topo, exterior do círculo e base, com alpha preparado no PNG. Photography e Collections testam esse sistema em cards pequenos, com padding consistente e composições distintas de desgaste. A versão anterior continua disponível para comparação; Shop, fotografia, logo e seções inferiores preservados.
+
+Arquivos, parâmetros, reprodução dos assets e screenshots desktop/mobile: [DARK_FRAME_SYSTEM.md](DARK_FRAME_SYSTEM.md).
+
+## Estudo independente — textura contínua da referência
+
+Execute `node dev-server.mjs` e abra [estudo de textura](http://127.0.0.1:4173/texture-reference-study.html). Ele compara duas intensidades sobre preto, moldura e hero, com PNGs isolados e mapa da extração.
+
+As regiões contínuas vêm diretamente de `assets/exemplos/base inicial.png`, com fotografia, lettering e textos descartados. A transparência está preparada nos PNGs; não há os 31 fragmentos nem compensação por opacity/máscaras CSS. [Hero normal](http://127.0.0.1:4173/homepage-dark-continuous-normal.html) e [hero acentuado](http://127.0.0.1:4173/homepage-dark-continuous-enhanced.html) são páginas de teste separadas. Homepage atual, Shop, foto e logo permanecem intactos.
+
+Arquivos, limites, reprodução da extração e screenshots: [HOMEPAGE_CONTINUOUS_TEXTURE.md](HOMEPAGE_CONTINUOUS_TEXTURE.md).
+
+## Homepage dark — debug visual do desgaste
+
+Execute `node dev-server.mjs` e abra [debug forte](http://127.0.0.1:4173/homepage-dark-wear-debug-strong.html) ou [debug moderada](http://127.0.0.1:4173/homepage-dark-wear-debug-moderate.html). A versão estética atual permanece intacta.
+
+Os mesmos 31 recortes estão numerados e separados por cor: 12 de bordas, 3 invasões e 16 próximos ao logo. Escalas forte/moderada: 1,50× / 1,20×; opacidades: 100% / 85%; alpha dos pixels amplificado para expor o material transparente. O painel oferece inventário de origem, tamanho, posição, repetição e limites, além de controles para ocultar caixas e coloração. Foto, logo, composição e Shop preservados.
+
+Parâmetros completos, capturas desktop/mobile e diagnóstico: [HOMEPAGE_WEAR_DEBUG.md](HOMEPAGE_WEAR_DEBUG.md).
+
+## Homepage dark — teste de microdesgaste
+
+Execute `node dev-server.mjs` e abra [teste com marcas finas](http://127.0.0.1:4173/homepage-dark-micro-wear.html). A [versão anterior](http://127.0.0.1:4173/homepage-dark-wear-layers.html) permanece intacta.
+
+O teste retira as manchas amplas de papel e usa 31 pequenas seleções das faixas extraídas da referência, em escala original: grãos de tinta e trechos curtos de risco, distribuídos assimetricamente no perímetro e ao redor do círculo. Os riscos verticais, fotografia, logo, composição, Shop e seções inferiores foram preservados. Nenhuma imagem nova foi gerada.
+
+Arquivos, aplicação e screenshots: [HOMEPAGE_MICRO_WEAR.md](HOMEPAGE_MICRO_WEAR.md). Comparação visual: `.playwright-mcp/homepage-dark-micro-wear-comparison.png`.
+
+## Homepage dark — correção de volume e integração (v2)
+
+Execute `node dev-server.mjs` e abra [nova versão com desgaste distribuído](http://127.0.0.1:4173/homepage-dark-wear-layers.html).
+
+A base extraída da referência permanece intacta. Seis áreas maiores de abrasão do PNG existente `worn-paper-source-v7.png` substituem os pequenos recortes anteriores, distribuindo desgaste nas margens e ao redor do logo. Máscaras graduais eliminam os limites dos recortes; não há repetição, espelhamento ou novos assets. Foto, logo, layout, Shop e seções inferiores foram preservados. Veja a comparação antes/depois em `.playwright-mcp/homepage-dark-wear-v2-comparison.png`.
+
+Camadas, ajustes e screenshots desktop/mobile: [HOMEPAGE_WEAR_LAYERS.md](HOMEPAGE_WEAR_LAYERS.md).
+
+## Teste de fidelidade — integração corrigida dos riscos (v2)
+
+Execute `node dev-server.mjs` e abra [homepage com faixas da referência](http://127.0.0.1:4173/homepage-dark-reference-extraction.html).
+
+Integração revista usando `assets/exemplos/base inicial.png`: o overlay transparente amplo mantém a distribuição original no desktop; no mobile, as faixas ficam em 68 × 535 px, sem ampliação pela altura do hero. O desgaste começa junto da navegação, recebe fades graduais e tonalidade bronze mais apagada. Opacidades: 76% desktop / 70% mobile; círculo existente em 62%. Não foram criados ou editados assets. Foto, logo, composição, seções inferiores e funcionalidades foram preservados; o Shop não foi modificado.
+
+Arquivos, capturas desktop/mobile e limites da extração: [HOMEPAGE_REFERENCE_EXTRACTION.md](HOMEPAGE_REFERENCE_EXTRACTION.md).
+
+## Novos testes — moldura4 e moldura4-1
+
+Execute `node dev-server.mjs` e abra [moldura4](http://127.0.0.1:4173/homepage-dark-overlay-4.html) ou [moldura4-1](http://127.0.0.1:4173/homepage-dark-overlay-4-1.html).
+
+Os dois assets fornecidos foram integrados sem edição, com desgaste mais presente nas margens, blend `screen` e opacidade de 55% em desktop / 42% no mobile. Foto, logo, composição e seções inferiores foram preservados. Capturas e comparação: [HOMEPAGE_OVERLAY_4_TESTS.md](HOMEPAGE_OVERLAY_4_TESTS.md).
+
+## Comparação dos overlays prontos A/B
+
+Execute `node dev-server.mjs` e abra [overlay A — moldura3.1.png](http://127.0.0.1:4173/homepage-dark-overlay-a.html) ou [overlay B — moldura3.png](http://127.0.0.1:4173/homepage-dark-overlay-b.html).
+
+As duas versões usam apenas o PNG escolhido como moldura, sem gerar ou editar texturas. Opacidades desktop/mobile: A 20%/16%; B 30%/22%. Foto, logo, layout e conteúdo inferior foram preservados. O B apresentou desgaste mais próximo de capa de disco gasta. Capturas: `.playwright-mcp/homepage-dark-overlay-{a,b}-{desktop-1440x900,mobile-390x844}.png`.
+
+Detalhes da integração, comparação e ajustes recomendados: [HOMEPAGE_OVERLAY_TESTS.md](HOMEPAGE_OVERLAY_TESTS.md). A homepage abaixo continua disponível como versão anterior.
+
+## Homepage dark — refinamento 07 / papel desgastado
+
+A homepage atual para revisão está em **http://127.0.0.1:4173/homepage-dark-hero.html**, usando o mesmo comando `node dev-server.mjs` descrito abaixo. A raiz `/` continua abrindo o Shop.
+
+O hero usa novas texturas transparentes de papel desgastado: bordas finas, falhadas e assimétricas, com abrasão localizada atrás do logo. Máscaras limitam o efeito às margens e quebram os trechos contínuos. O círculo ritual discreto voltou a acompanhar o lettering. A fotografia tratada, seus fades e o logo 3 foram preservados.
+
+Alterados: `assets/homepage-dark-hero.css`, `HOMEPAGE_DARK_HERO.md` e este README. Criados: `assets/paper-breakup.svg`, dois PNGs `assets/bordas/worn-paper-*-v7.png`, documentação dos prompts em `assets/bordas/WORN_PAPER_V7.md` e capturas `.playwright-mcp/homepage-dark-v7-*.png`. HTML, Shop e imagens fornecidas foram preservados.
+
+Detalhes, limites e caminhos das capturas: [HOMEPAGE_DARK_HERO.md](HOMEPAGE_DARK_HERO.md). O conteúdo abaixo registra as iterações anteriores do Shop; descrições antigas de homepage ainda não implementada pertencem àquele estágio.
+
 Site estático em inglês, sem dependências de terceiros ou etapa de build. A implementação usa HTML, CSS, JavaScript e cinco SVGs decorativos locais. Node.js é necessário somente para o servidor de desenvolvimento.
 
 ## Executar

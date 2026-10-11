@@ -1,0 +1,101 @@
+/* Diagnostic only: original crop coordinates and placement, boosted visibility.
+   The photographic presentation and production texture stylesheet stay intact. */
+.home-wear-debug {
+  --debug-scale: 1.5;
+  --debug-opacity: 1;
+  --debug-mask: none;
+}
+.home-wear-debug.debug-moderate {
+  --debug-scale: 1.2;
+  --debug-opacity: .85;
+  --debug-mask: linear-gradient(90deg, transparent, #000 1px, #000 calc(100% - 1px), transparent), linear-gradient(180deg, transparent, #000 1px, #000 calc(100% - 1px), transparent);
+}
+.home-wear-debug .micro-wear-perimeter,
+.home-wear-debug .micro-wear-focal {
+  z-index: 5;
+  mix-blend-mode: normal;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.home-wear-debug .micro-mark {
+  /* The parent is only the footprint; the pseudo-element is actual PNG ink. */
+  background-image: none;
+  filter: none;
+  opacity: 1;
+  transform: rotate(var(--turn, 0deg)) scale(var(--debug-scale));
+  -webkit-mask-image: none;
+  mask-image: none;
+  outline: 1px solid var(--debug-color);
+  outline-offset: 1px;
+}
+.home-wear-debug .micro-mark[data-debug-group="border"] { --debug-color: #f28a8a; }
+.home-wear-debug .micro-mark[data-debug-group="inward"] { --debug-color: #76bbf2; }
+.home-wear-debug .micro-mark[data-debug-group="logo"] { --debug-color: #e5e5e5; }
+.home-wear-debug .micro-mark.from-right { background-image: none; }
+.home-wear-debug .micro-mark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('bordas/reference-extraction/la_likbor_riscos_esquerda.png');
+  background-size: 68px 535px;
+  background-position: var(--sx) var(--sy);
+  background-repeat: no-repeat;
+  opacity: var(--debug-opacity);
+  filter: var(--debug-colored-filter);
+  -webkit-mask-image: var(--debug-mask);
+  mask-image: var(--debug-mask);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.home-wear-debug .micro-mark.from-right::before {
+  background-image: url('bordas/reference-extraction/la_likbor_riscos_direita.png');
+}
+.wear-debug-labels {
+  position: absolute; inset: 0; z-index: 8;
+  pointer-events: none; user-select: none;
+}
+.wear-debug-label {
+  position: absolute;
+  border: 1px solid var(--label-color);
+  padding: 1px 2px;
+  background: #050505e8;
+  color: var(--label-color);
+  font: 10px/1.15 Consolas, monospace;
+  white-space: nowrap;
+}
+.wear-debug-panel {
+  position: fixed; right: 24px; bottom: 12px; z-index: 30;
+  width: 360px; max-width: calc(100vw - 48px);
+  padding: 8px 10px;
+  border: 1px solid #71665a; background: #070707f5; color: #d4d0c8;
+  font: 11px/1.5 Consolas, monospace;
+  box-shadow: 0 2px 12px #0008;
+}
+.wear-debug-panel summary { cursor: pointer; }
+.wear-debug-panel summary strong { color: #eee; }
+.wear-debug-panel .group-border { color: #f28a8a; }
+.wear-debug-panel .group-inward { color: #76bbf2; }
+.wear-debug-panel .group-logo { color: #e5e5e5; }
+.wear-debug-panel .debug-controls { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0; }
+.wear-debug-panel label { display: inline-flex; align-items: center; gap: 5px; }
+.wear-debug-panel input { accent-color: #ad9473; }
+.wear-debug-panel a { color: #d1bd9b; text-decoration: underline; }
+.wear-debug-panel p { margin: 6px 0; font-size: inherit; }
+.wear-debug-inventory { max-height: 42vh; overflow: auto; }
+.wear-debug-inventory table { border-collapse: collapse; width: 100%; font: 10px/1.5 Consolas, monospace; }
+.wear-debug-inventory th { position: sticky; top: 0; background: #111; text-align: left; }
+.wear-debug-inventory td, .wear-debug-inventory th { padding: 4px 3px; border-bottom: 1px solid #34302b; }
+.wear-debug-inventory td { vertical-align: top; }
+.wear-debug-inventory .source-cell { color: #afa79c; }
+.debug-without-annotations .micro-mark { outline: none; }
+.debug-without-annotations .wear-debug-labels { display: none; }
+.debug-native-colors .micro-mark::before { filter: var(--debug-native-filter); }
+.wear-debug-definitions { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+@media (max-width: 700px) {
+  .wear-debug-label { font-size: 9px; }
+  .wear-debug-panel {
+    top: min(622px, calc(100dvh - 42px)); bottom: auto; right: 26px; width: calc(100vw - 52px);
+    max-width: none; padding: 4px 7px; font-size: 9px;
+  }
+  .wear-debug-panel[open] { top: 54px; max-height: calc(100dvh - 68px); overflow: auto; }
+}

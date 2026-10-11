@@ -1,0 +1,78 @@
+/* A/B integration only: original supplied PNGs, no generated wear or filters. */
+.home-overlay-study {
+  --test-overlay-image: url('bordas/moldura3.1.png');
+  --test-overlay-opacity: .20;
+}
+.home-overlay-study[data-frame-overlay="b"] {
+  --test-overlay-image: url('bordas/moldura3.png');
+  --test-overlay-opacity: .30;
+}
+
+/* Replace the previous paper overlays; keep the established orbit SVG. */
+.home-overlay-study .home-copy::before,
+.home-overlay-study .home-logo::before,
+.home-overlay-study .home-hero::after { content: none; }
+
+.hero-overlay-frame {
+  position: absolute;
+  inset: -64px -54px 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: var(--test-overlay-opacity);
+  background: var(--test-overlay-image) center / 100% 100% no-repeat;
+  /* Geometric edge fades protect the content; the asset's wear is untouched. */
+  -webkit-mask-image: linear-gradient(90deg, #000 3%, transparent 8%, transparent 92%, #000 97%), linear-gradient(180deg, #000 2%, transparent 8%, transparent 92%, #000 98%);
+  mask-image: linear-gradient(90deg, #000 3%, transparent 8%, transparent 92%, #000 97%), linear-gradient(180deg, #000 2%, transparent 8%, transparent 92%, #000 98%);
+  -webkit-mask-composite: source-over;
+  mask-composite: add;
+}
+.hero-overlay-frame > span { display: none; }
+
+@media (min-width: 701px) and (max-width: 1050px) {
+  .hero-overlay-frame { inset-inline: -30px; }
+}
+
+@media (max-width: 700px) {
+  .home-overlay-study { --test-overlay-opacity: .16; }
+  .home-overlay-study[data-frame-overlay="b"] { --test-overlay-opacity: .22; }
+  .home-overlay-study .home-hero { overflow: visible; }
+  .hero-overlay-frame {
+    inset: -66px -12px 0;
+    background: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  /* Four clipped source regions keep the edge texture's natural aspect ratio.
+     Each region uses the SAME selected asset, without tiling or mirroring. */
+  .hero-overlay-frame > span {
+    display: block; position: absolute; pointer-events: none;
+    background-image: var(--test-overlay-image); background-repeat: no-repeat;
+  }
+  .hero-overlay-frame .frame-left,
+  .hero-overlay-frame .frame-right {
+    top: 0; bottom: 0; width: 30px; background-size: auto 100%;
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 48px, #000 calc(100% - 48px), transparent), linear-gradient(90deg, #000 62%, transparent);
+    mask-image: linear-gradient(180deg, transparent, #000 48px, #000 calc(100% - 48px), transparent), linear-gradient(90deg, #000 62%, transparent);
+    -webkit-mask-composite: source-in; mask-composite: intersect;
+  }
+  .hero-overlay-frame .frame-left { left: 0; background-position: left -6px top; }
+  .hero-overlay-frame .frame-right {
+    right: 0; background-position: right -6px top;
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 48px, #000 calc(100% - 48px), transparent), linear-gradient(270deg, #000 62%, transparent);
+    mask-image: linear-gradient(180deg, transparent, #000 48px, #000 calc(100% - 48px), transparent), linear-gradient(270deg, #000 62%, transparent);
+  }
+  .hero-overlay-frame .frame-top,
+  .hero-overlay-frame .frame-bottom {
+    left: 0; right: 0; height: 38px; background-size: 100% auto;
+  }
+  .hero-overlay-frame .frame-top {
+    top: 0; background-position: center top;
+    -webkit-mask-image: linear-gradient(#000, #000 8px, transparent);
+    mask-image: linear-gradient(#000, #000 8px, transparent);
+  }
+  .hero-overlay-frame .frame-bottom {
+    bottom: 0; background-position: center bottom;
+    -webkit-mask-image: linear-gradient(transparent, #000 calc(100% - 8px));
+    mask-image: linear-gradient(transparent, #000 calc(100% - 8px));
+  }
+}

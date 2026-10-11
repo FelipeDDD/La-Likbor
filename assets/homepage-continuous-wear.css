@@ -1,0 +1,35 @@
+/* Independent extraction study. Ink/alpha is prepared in the PNGs, not CSS. */
+.home-continuous-wear .home-copy::before,
+.home-continuous-wear .home-logo::before,
+.home-continuous-wear .home-hero::after { content: none; }
+.home-continuous-wear .home-copy,
+.home-continuous-wear .home-motto { z-index: 2; }
+.home-continuous-wear .home-copy::after,
+.home-continuous-wear .home-logo::after { opacity: .62; }
+.home-continuous-wear .continuous-overlay {
+  position: absolute; top: -64px; left: -54px; right: -54px;
+  aspect-ratio: 1122 / 560; z-index: 1;
+  pointer-events: none; user-select: none;
+  opacity: 1; filter: none; mix-blend-mode: normal;
+  -webkit-mask-image: none; mask-image: none;
+}
+.home-continuous-wear .continuous-overlay img { display: block; height: auto; pointer-events: none; }
+.home-continuous-wear .continuous-wide { width: 100%; }
+.home-continuous-wear .continuous-side,
+.home-continuous-wear .continuous-lower { display: none !important; }
+@media (min-width: 701px) and (max-width: 1050px) {
+  .home-continuous-wear .continuous-overlay { left: -30px; right: -30px; }
+}
+@media (max-width: 700px) {
+  .home-continuous-wear .home-hero { overflow: visible; }
+  .home-continuous-wear .continuous-overlay {
+    top: -66px; left: -12px; right: -12px;
+    aspect-ratio: auto; height: calc(100% + 66px); overflow: clip;
+  }
+  .home-continuous-wear .continuous-wide { display: none !important; }
+  /* Nonoverlapping source slices: native scale, no repetition or mirroring. */
+  .home-continuous-wear .continuous-side { display: block !important; position: absolute; top: 0; width: 112px; height: 560px; max-width: none; }
+  .home-continuous-wear .continuous-left { left: -14px; }
+  .home-continuous-wear .continuous-right { right: -14px; }
+  .home-continuous-wear .continuous-lower { display: block !important; position: absolute; bottom: 0; left: 50%; width: 250px; height: 45px; transform: translateX(-50%); }
+}

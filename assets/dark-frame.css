@@ -1,0 +1,70 @@
+/* Official opt-in dark frame: accepted continuous base + prepared companion.
+   Shared by the refined hero and the isolated master-card study only. */
+@import url('homepage-continuous-wear.css');
+
+.dark-frame {
+  --dark-frame-padding: 28px;
+  --dark-frame-ink: #b8a181;
+  --dark-frame-hairline: #554735;
+}
+.dark-frame__ink {
+  pointer-events: none;
+  user-select: none;
+  opacity: 1;
+  filter: none;
+  mix-blend-mode: normal;
+  mask-image: none;
+}
+.dark-frame__companion-wide { position: absolute; inset: 0; width: 100%; }
+.dark-frame__companion-part { display: none !important; }
+
+/* Cards have a canonical 360 × 250 frame. Scaling is uniform on both axes;
+   each variant selects different long runs, rather than mirroring/repeating. */
+.dark-frame-card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  aspect-ratio: 360 / 250;
+  padding: var(--dark-frame-padding);
+  color: #d0cdc5;
+  background: #030303;
+  text-decoration: none;
+}
+.dark-frame-card > .dark-frame__ink {
+  position: absolute; inset: 0; z-index: -1;
+  width: 100%; height: auto;
+}
+.dark-frame-card::before {
+  content: ''; position: absolute; inset: 9px; z-index: -2;
+  border: 1px solid var(--dark-frame-hairline);
+  /* The aged ink interrupts this quiet support line. */
+  mask-image: linear-gradient(128deg, #0009, #0002 18%, #0007 41%, transparent 61%, #0006 83%, #0003);
+  pointer-events: none;
+}
+.dark-frame-card .card-index { margin: 0 0 16px; font-size: 12px; font-style: italic; color: var(--dark-frame-ink); }
+.dark-frame-card h2 { margin: 0 0 10px; font-size: 17px; line-height: 1.4; letter-spacing: 2.5px; font-weight: 400; text-transform: uppercase; }
+.dark-frame-card .card-copy { margin: 0; font-size: 11px; line-height: 1.9; letter-spacing: 1.1px; color: #b9b7b1; text-transform: uppercase; }
+.dark-frame-card .card-note { margin: 16px 0 0; color: #ada391; font-size: 11px; line-height: 1.6; font-style: italic; }
+.dark-frame-card .card-note span { float: right; color: var(--dark-frame-ink); font-style: normal; }
+a.dark-frame-card:hover { background: #080807; --dark-frame-hairline: #796448; }
+a.dark-frame-card:focus-visible { outline: 2px solid #b8a181; outline-offset: 5px; }
+
+@media (max-width: 700px) {
+  .dark-frame__companion-wide { display: none !important; }
+  .dark-frame__companion-part { display: block !important; position: absolute; max-width: none; }
+  .dark-frame__companion-top { width: 190px; height: 30px; top: 0; left: 65px; }
+  /* Only the horizontal field is used near the mobile orbit; no ink on letters. */
+  .dark-frame__companion-orbit { width: 145px; height: 28px; top: 256px; left: 110px; }
+  .dark-frame__companion-lower { width: 65px; height: 45px; bottom: -20px; left: 260px; }
+  .dark-frame-card { --dark-frame-padding: 26px; }
+}
+@media (max-width: 360px) {
+  .dark-frame-card { --dark-frame-padding: 22px; }
+  .dark-frame-card .card-index { margin-bottom: 10px; }
+  .dark-frame-card h2 { font-size: 15px; margin-bottom: 8px; }
+  .dark-frame-card .card-copy { font-size: 10px; }
+  .dark-frame-card .card-note { font-size: 10px; margin-top: 12px; }
+  .dark-frame__companion-lower { left: auto; right: 40px; }
+}
