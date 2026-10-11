@@ -1,0 +1,3 @@
+Abra DESIGN_BRIEF.md antes de modificar o projeto.
+Importe references/shop_current.html como ponto inicial do protótipo; os PNGs são referências de aparência, não assets prontos de interface. `references/portrait_original.webp` é a fotografia recebida da usuária do site.
+O projeto ainda é um protótipo sem e-commerce funcional.

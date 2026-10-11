@@ -1,0 +1,65 @@
+/* Refinement is opt-in; the Shop and both original logo studies are unchanged. */
+.home-refined {
+  --bg: #000;
+  --surface: #070707;
+  --paper: #dad7d0;
+  --muted: #a4a29d;
+  --edge: #4c4234;
+  --frame: linear-gradient(135deg, #897554, #302922 19%, #796449 34%, #40372c 58%, #907956 79%, #302921);
+  background: #000;
+}
+.home-refined .page-frame { background: #000; border-inline-color: #42392d; }
+.home-refined .page-frame::before, .home-refined .page-frame::after { opacity: .53; }
+.home-refined .home-hero { background: #000; border-color: transparent; }
+.home-refined .home-hero::before { background: url('grain.svg'); opacity: .14; }
+
+/* Masks dissolve the photographic rectangle into the same pure black as the
+   page. Gradients intersect, so every edge and corner reaches transparency.
+   Face and candle sit within the opaque centre. No filter or edited image. */
+.home-refined .home-portrait {
+  --portrait-mask-x: linear-gradient(90deg, transparent, #000 27%, #000 84%, transparent);
+  --portrait-mask-y: linear-gradient(180deg, transparent, #000 13%, #000 77%, transparent);
+  -webkit-mask-image: var(--portrait-mask-x), var(--portrait-mask-y);
+  mask-image: var(--portrait-mask-x), var(--portrait-mask-y);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.home-refined .home-portrait::after {
+  background:
+    radial-gradient(ellipse at 54% 43%, transparent 32%, #0006 70%, #000c),
+    linear-gradient(90deg, #000, #0008 15%, transparent 35%, transparent 79%, #0008),
+    linear-gradient(180deg, #0005, transparent 18%, transparent 68%, #000);
+}
+.home-refined .home-introduction > p, .home-refined .home-motto { color: #d0cdc5; }
+.home-refined .home-actions a { background: #020202; border-color: #806b4e; }
+.home-refined .home-actions a:hover { background: #0d0d0d; border-color: #ac916b; }
+.home-refined .home-fragment {
+  background: url('grain.svg') padding-box, linear-gradient(#070707, #010101) padding-box, var(--frame) border-box;
+  box-shadow: 0 8px 20px #0008, inset 0 0 0 2px #000;
+}
+.home-refined .home-fragment:nth-child(even) { --frame: linear-gradient(145deg, #655540, #8a7759 18%, #2c2620 37%, #6e604b 68%, #302820); }
+.home-refined .ornate-card::before, .home-refined .ornate-card::after { opacity: .6; }
+.home-refined .home-fragment p { color: #b9b7b1; }
+.home-refined .fragment-note { color: #a8a39a; }
+.home-refined .fragment-number { color: #a68e69; }
+.home-refined a.home-fragment:hover { box-shadow: 0 0 18px #ffffff08; }
+.home-refined .home-about {
+  background: linear-gradient(#0009, #0009) padding-box, url('grain.svg') padding-box, url('atmosphere.svg') 85% 50% / 400px auto no-repeat padding-box, linear-gradient(#050505, #000) padding-box, var(--frame) border-box;
+}
+.home-refined .home-about p:not(.eyebrow) { color: #bebbb4; }
+.home-refined .home-about > img { opacity: .6; }
+.home-refined .section-divider { opacity: .72; }
+.home-refined footer p, .home-refined .notice { color: #a6a39c; }
+
+@media (max-width: 700px) {
+  .home-refined .page-frame::before, .home-refined .page-frame::after { opacity: .4; }
+  .home-refined .home-portrait {
+    --portrait-mask-x: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+    --portrait-mask-y: linear-gradient(180deg, transparent, #000 12%, #000 76%, transparent);
+  }
+  .home-refined .home-portrait::after {
+    background:
+      radial-gradient(ellipse at 55% 43%, transparent 36%, #0005 73%, #000b),
+      linear-gradient(180deg, #0006, transparent 16%, transparent 74%, #000);
+  }
+}

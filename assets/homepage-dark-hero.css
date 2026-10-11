@@ -1,0 +1,64 @@
+/* Hero study 02: retain the black homepage and the supplied logo 3 asset. */
+.home-dark-hero .site-header { grid-template-columns: 1fr 60px 1fr; position: relative; z-index: 4; }
+.home-dark-hero .hero-header-sigil { justify-self: center; align-self: start; width: 43px; height: 77px; margin-top: 10px; opacity: .8; pointer-events: none; }
+.home-dark-hero .demo-label { color: #ab967b; font-size: 8px; letter-spacing: 2px; }
+.home-dark-hero .site-header nav a { color: #c8b9a3; }
+.home-dark-hero .site-header nav a:hover { color: #e0cfb5; }
+
+/* Remove the radial black veil and widen the fully visible region. Masking
+   handles the edge transition; the remaining overlay only bridges the left
+   text area and the lowest edge. The source image remains unfiltered. */
+.home-dark-hero .home-portrait {
+  --portrait-mask-x: linear-gradient(90deg, transparent, #000 17%, #000 93%, transparent);
+  --portrait-mask-y: linear-gradient(180deg, transparent, #000 6%, #000 91%, transparent);
+}
+.home-dark-hero .home-portrait::after {
+  background:
+    linear-gradient(90deg, #000, #0006 10%, transparent 30%),
+    linear-gradient(180deg, transparent 83%, #0009);
+}
+.home-dark-hero .home-hero::before { background: url('grain.svg'); opacity: .23; }
+.home-dark-hero .home-logo { isolation: isolate; }
+.home-dark-hero .home-logo::before { content: ''; position: absolute; inset: 0; z-index: -1; background: url('hero-orbit.svg') center / auto 100% no-repeat; opacity: .45; pointer-events: none; }
+.home-dark-hero .home-introduction > p { color: #c7baa7; font-size: 10px; font-weight: 400; line-height: 2.1; letter-spacing: 2.4px; }
+.home-dark-hero .home-rule { gap: 13px; margin: 15px 0; }
+.home-dark-hero .home-rule img { display: block; width: 24px; height: 39px; opacity: .85; }
+.home-dark-hero .home-rule::before, .home-dark-hero .home-rule::after { background: linear-gradient(90deg, #927959, #92795922); }
+.home-dark-hero .home-actions a { color: #d0c2af; font-weight: 400; font-size: 9px; letter-spacing: 1.7px; border-color: #998061; background: #0003; }
+.home-dark-hero .home-motto { top: 29%; right: 17px; max-width: 80px; color: #bbaa91; font-size: 9px; font-weight: 400; line-height: 2.1; letter-spacing: 2.5px; text-shadow: 0 1px 8px #0009; }
+.home-dark-hero .home-motto::after { content: ''; position: absolute; left: 0; top: 70px; width: 15px; height: 1px; background: #9b8261; }
+.home-dark-hero .home-motto .hero-inverted-sigil { width: 36px; height: 90px; margin-top: 26px; transform: rotate(180deg); opacity: .9; }
+/* Side scratches stay outside the content column. Extra abrasion in the hero
+   is restricted to a narrow strip at each outer edge, away from face/logo. */
+.home-dark-hero .page-frame::before, .home-dark-hero .page-frame::after { opacity: .84; }
+.home-dark-hero .home-hero::after {
+  content: ''; position: absolute; inset: 0 -30px; z-index: 2; pointer-events: none;
+  background: url('scratches.svg') left top / 70px 430px repeat-y, url('scratches.svg') right 130px / 70px 430px repeat-y;
+  -webkit-mask-image: linear-gradient(90deg, #000, transparent 4%, transparent 96%, #000);
+  mask-image: linear-gradient(90deg, #000, transparent 4%, transparent 96%, #000);
+  opacity: .3;
+}
+@media (max-width: 1050px) and (min-width: 701px) {
+  .home-dark-hero .site-header { grid-template-columns: 1fr 42px auto; gap: 15px; }
+  .home-dark-hero .hero-header-sigil { width: 36px; height: 70px; }
+  .home-dark-hero .demo-label { font-size: 7px; letter-spacing: 1.4px; }
+  .home-dark-hero .home-actions a { font-size: 8px; letter-spacing: 1px; }
+}
+@media (max-width: 700px) {
+  .home-dark-hero .site-header { min-height: 74px; padding-top: 0; grid-template-columns: 1fr; gap: 0; }
+  .home-dark-hero .site-header nav { grid-row: 1; grid-column: 1; padding: 0; align-self: center; }
+  .home-dark-hero .hero-header-sigil { display: none; }
+  .home-dark-hero .demo-label { display: none; }
+  .home-dark-hero .home-portrait {
+    --portrait-mask-x: linear-gradient(90deg, transparent, #000 10%, #000 92%, transparent);
+    --portrait-mask-y: linear-gradient(180deg, transparent, #000 8%, #000 90%, transparent);
+  }
+  .home-dark-hero .home-portrait::after { background: linear-gradient(180deg, transparent 84%, #0009); }
+  .home-dark-hero .home-introduction > p { font-size: 9px; line-height: 2; letter-spacing: 1.8px; }
+  .home-dark-hero .home-rule { width: 84%; margin: 8px auto; }
+  .home-dark-hero .home-rule img { width: 21px; height: 34px; }
+  .home-dark-hero .home-actions a { font-size: 8px; letter-spacing: 1.2px; }
+  .home-dark-hero .home-logo::before { opacity: .35; }
+  .home-dark-hero .page-frame::before, .home-dark-hero .page-frame::after { opacity: .65; }
+  .home-dark-hero .home-hero::after { inset-inline: -12px; opacity: .2; background-size: 45px 400px; }
+}
