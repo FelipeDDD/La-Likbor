@@ -9,6 +9,8 @@ Site estático pessoal e Shop, sem framework ou etapa de build.
 
 A homepage foi consolidada a partir de `homepage-dark-wear-scattered.html`, incluindo o novo logo, desgaste com remoções irregulares, cruz invertida detalhada e botões em bronze discreto. Sua aparência foi preservada. O nome anteriormente indicado como base no README era `homepage-dark-frame-consolidated.html`.
 
+Tipografia selecionada: Georgia no menu, hero e informações secundárias dos produtos; EB Garamond nos quatro cards, título Recent Pieces, nomes/preços e rodapé. O texto completo de Of a Darker World segue a referência. Regras em `assets/homepage-typography.css`, com a fonte e licença em `assets/fonts/eb-garamond/`.
+
 ## Executar localmente
 
 Com Node.js disponível, no PowerShell, dentro desta pasta:
