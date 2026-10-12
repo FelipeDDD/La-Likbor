@@ -1,0 +1,23 @@
+/* Approved 4:5 presentation and subdued single-edge finish for Recent Pieces. */
+.home-recent-polished .recent-photo {
+  aspect-ratio: 4 / 5;
+  padding: 3px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(160deg, #111213, #0b0c0d 42%, #080909) padding-box,
+    linear-gradient(145deg, #494438, #2d2f2d 30%, #202322 65%, #3b372f) border-box;
+  box-shadow: 0 1px 2px #0005;
+}
+.home-recent-polished.home-recent-ritual .recent-photo .photo-treatment { inset: 3px; }
+.home-recent-polished .recent-photo::after { content: none; }
+.home-recent-polished .recent-photo__marker { right: 6px; top: 6px; }
+
+@media (max-width: 700px) {
+  .home-recent-polished .recent-photo { padding: 2px; }
+  .home-recent-polished.home-recent-ritual .recent-photo .photo-treatment { inset: 2px; }
+  .home-recent-polished .recent-photo__marker { right: 4px; top: 4px; }
+}
+
+@media (hover: hover) {
+  .home-recent-polished .recent-photo:hover { border-color: transparent; }
+}
