@@ -1,0 +1,209 @@
+/* Refinement is confined to this new review page. Layout and type are inherited. */
+.home-frame-consolidated .page-frame { border-inline-color: #42392d30; }
+.home-frame-consolidated .home-hero {
+  background: linear-gradient(180deg, #000, transparent 8%, transparent 86%, #000), radial-gradient(ellipse 37% 68% at 97% 44%, #0b0c0d, #05050585 70%, #03030300), #030303;
+}
+.home-frame-consolidated .home-portrait img {
+  /* Reversible matte presentation; original pixels, crop and edge masks stay intact. */
+  filter: contrast(.94) saturate(.94) brightness(.98);
+}
+.home-frame-consolidated .home-hero::before {
+  inset: -64px -54px 0;
+  background: url('grain.svg'), linear-gradient(112deg, #18191b06, #11121518);
+  opacity: .28;
+}
+.home-frame-consolidated .dark-frame-surface.ornate-card {
+  /* Quiet, interrupted bronze support instead of a continuous bright rectangle. */
+  --frame: linear-gradient(133deg, #79664b90, #30292216 21%, #69583f68 34%, #30292212 52%, #79664b66 74%, #30292218);
+}
+.home-frame-consolidated .home-copy::before {
+  content: ''; top: 6px; left: 62px; width: 365px; height: 365px;
+  background: url('bordas/dark-frame-consolidated/orbit-companion.png') center / contain no-repeat;
+  opacity: 1; mix-blend-mode: normal; filter: none;
+  -webkit-mask-image: none; mask-image: none;
+}
+.home-frame-consolidated .dark-frame-surface { isolation: isolate; }
+.home-frame-consolidated .dark-frame-surface::before,
+.home-frame-consolidated .dark-frame-surface::after { content: none; }
+.frame-surface-wear {
+  position: absolute; inset: 0; overflow: clip; z-index: -1;
+  pointer-events: none; user-select: none;
+  background-image: var(--wear-left), var(--wear-right), var(--wear-top), var(--wear-bottom);
+  background-repeat: no-repeat;
+  /* Native pixel scale: long side runs are cropped, never stretched or tiled. */
+  background-size: 24px 250px, 24px 250px, 312px 22px, 312px 22px;
+  background-position: left center, right center, center top, center bottom;
+}
+.frame-photography {
+  --wear-left: url('bordas/dark-frame-consolidated/photography-left.png');
+  --wear-right: url('bordas/dark-frame-consolidated/photography-right.png');
+  --wear-top: url('bordas/dark-frame-consolidated/photography-top.png');
+  --wear-bottom: url('bordas/dark-frame-consolidated/photography-bottom.png');
+}
+.frame-collections {
+  --wear-left: url('bordas/dark-frame-consolidated/collections-left.png');
+  --wear-right: url('bordas/dark-frame-consolidated/collections-right.png');
+  --wear-top: url('bordas/dark-frame-consolidated/collections-top.png');
+  --wear-bottom: url('bordas/dark-frame-consolidated/collections-bottom.png');
+}
+.frame-music {
+  --wear-left: url('bordas/dark-frame-consolidated/music-left.png');
+  --wear-right: url('bordas/dark-frame-consolidated/music-right.png');
+  --wear-top: url('bordas/dark-frame-consolidated/music-top.png');
+  --wear-bottom: url('bordas/dark-frame-consolidated/music-bottom.png');
+}
+.frame-objects {
+  --wear-left: url('bordas/dark-frame-consolidated/objects-left.png');
+  --wear-right: url('bordas/dark-frame-consolidated/objects-right.png');
+  --wear-top: url('bordas/dark-frame-consolidated/objects-top.png');
+  --wear-bottom: url('bordas/dark-frame-consolidated/objects-bottom.png');
+}
+.frame-about {
+  --wear-left: url('bordas/dark-frame-consolidated/about-left.png');
+  --wear-right: url('bordas/dark-frame-consolidated/about-right.png');
+  --wear-top: url('bordas/dark-frame-consolidated/about-top.png');
+  --wear-bottom: url('bordas/dark-frame-consolidated/about-bottom.png');
+}
+.frame-photography .frame-surface-wear { background-position: left top, right bottom, 30% top, 60% bottom; }
+.frame-collections .frame-surface-wear { background-position: left bottom, right bottom, 65% top, 35% bottom; }
+.frame-music .frame-surface-wear { background-position: left bottom, right top, 75% top, 70% bottom; }
+.frame-objects .frame-surface-wear { background-position: left bottom, right top, 25% top, 20% bottom; }
+.frame-about .frame-surface-wear { background-position: left center, right center, 20% top, 80% bottom; opacity: .88; }
+
+/* Retire the legacy repeating branch decoration only on this consolidated page.
+   The accepted hero margins and the new continuous section frames carry wear. */
+.home-frame-consolidated .page-frame::before,
+.home-frame-consolidated .page-frame::after { content: none; }
+
+/* A few existing ink fields cross the section boundary, without enclosing it.
+   Prepared alpha handles the fades; no repetition, stretched sides or new frame. */
+.home-frame-consolidated .home-archive { position: relative; }
+.home-frame-consolidated .home-section-heading {
+  /* Reserve the existing heading envelope after the redundant sentence is removed. */
+  min-height: 65.296875px;
+  position: relative; z-index: 1;
+}
+.home-frame-consolidated .home-section-heading h2.eyebrow {
+  font-size: 9px; line-height: 1.7; letter-spacing: 2.4px; font-weight: 400;
+}
+.archive-wear-transition {
+  position: absolute; inset: -80px -54px auto; height: 405px;
+  pointer-events: none; user-select: none; z-index: 0;
+}
+.archive-wear-transition img {
+  position: absolute; width: 120px; height: auto; max-width: none;
+  opacity: 1; mix-blend-mode: normal;
+}
+.archive-wear-transition__left { left: 0; top: 10px; }
+.archive-wear-transition__right { right: 0; top: 43px; }
+
+/* Supplied preview images sit below the accepted wear and all live text.
+   Taller previews retain the existing grid and padding. */
+.home-frame-consolidated .home-fragment {
+  display: flex; flex-direction: column; text-align: left; min-height: 320px;
+}
+.home-frame-consolidated .home-fragment.ornate-card {
+  --frame: linear-gradient(var(--sleeve-angle, 133deg), #79664b58, #30292208 21%, #69583f45 34%, #30292208 52%, #79664b40 74%, #30292210);
+}
+.frame-collections { --sleeve-angle: 119deg; }
+.frame-music { --sleeve-angle: 157deg; }
+.frame-objects { --sleeve-angle: 143deg; }
+.fragment-copy { margin-top: auto; }
+.fragment-label { display: flex; align-items: baseline; gap: 10px; margin-bottom: 11px; }
+.home-frame-consolidated .fragment-label .fragment-number {
+  flex: none; margin: 0; font-size: 13px; line-height: 1.5; color: #ad9979;
+}
+.home-frame-consolidated .fragment-label h3 {
+  margin: 0; font-size: 13px; line-height: 1.5; letter-spacing: 1.5px; color: #dedbd4;
+}
+.home-frame-consolidated .home-fragment p {
+  margin: 0; font-size: 11px; line-height: 1.85; letter-spacing: .65px; color: #c7c4be;
+}
+.home-frame-consolidated .archive-preview {
+  position: absolute; inset: 2px; z-index: -2; overflow: hidden;
+  pointer-events: none; user-select: none; background: #030303;
+}
+.archive-preview img {
+  display: block; width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(.25) brightness(.82) contrast(.98);
+}
+.archive-preview::after {
+  content: ''; position: absolute; inset: 0;
+  background: url('grain.svg'),
+    linear-gradient(180deg, #03030310, #0303031a 35%, #03030380 57%, #030303e8 75%, #030303fa),
+    radial-gradient(ellipse at 52% 30%, transparent 30%, #03030355);
+}
+.frame-photography .archive-preview img { object-position: 50% 27%; }
+.frame-collections .archive-preview img {
+  /* Preserve the approved dark portrait presentation on Collections only. */
+  filter: saturate(.16) brightness(.66) contrast(1.03);
+}
+.frame-collections .archive-preview img { object-position: 50% 20%; }
+.frame-music .archive-preview img { object-position: 54% 45%; }
+.frame-objects .archive-preview img { object-position: 58% 43%; }
+.home-frame-consolidated .home-about {
+  /* Replace the old atmosphere SVG with the supplied landscape, retaining bronze. */
+  background: url('grain.svg') padding-box, linear-gradient(#030303, #010101) padding-box, var(--frame) border-box;
+}
+.archive-preview--world img {
+  position: absolute; right: 0; width: 76%; object-position: 50% 24%;
+  filter: saturate(.2) brightness(.84) contrast(.98);
+}
+.archive-preview--world::after {
+  background: url('grain.svg'),
+    linear-gradient(90deg, #030303 3%, #030303ed 29%, #03030399 44%, transparent 66%, #03030355),
+    linear-gradient(180deg, #03030335, transparent 25%, transparent 65%, #030303a6);
+}
+.home-frame-consolidated .home-about p:not(.eyebrow) { color: #c7c4be; }
+@media (min-width: 701px) and (max-width: 1050px) {
+  .archive-wear-transition { inset-inline: -30px; }
+  .home-frame-consolidated .home-hero::before { inset-inline: -30px; }
+  .home-frame-consolidated .home-copy::before { left: 10px; top: 12px; width: 290px; height: 290px; }
+}
+@media (max-width: 700px) {
+  .home-frame-consolidated .home-fragment { min-height: 280px; }
+  .fragment-label { gap: 7px; margin-bottom: 10px; }
+  .home-frame-consolidated .fragment-label .fragment-number { font-size: 11px; }
+  .home-frame-consolidated .fragment-label h3 { font-size: 11px; letter-spacing: .65px; }
+  .home-frame-consolidated .home-fragment p { font-size: 10px; line-height: 1.8; letter-spacing: .2px; }
+  .archive-preview::after {
+    background: url('grain.svg'),
+      linear-gradient(180deg, #03030315, #03030325 36%, #03030399 60%, #030303ed 78%, #030303fa),
+      radial-gradient(ellipse at 52% 30%, transparent 32%, #03030345);
+  }
+  .frame-photography .archive-preview img { object-position: 49% 27%; }
+  .frame-music .archive-preview img { object-position: 58% 45%; }
+  .frame-objects .archive-preview img { object-position: 62% 43%; }
+  .archive-preview--world img { width: 100%; object-position: 58% 50%; }
+  .archive-preview--world::after {
+    background: url('grain.svg'),
+      linear-gradient(90deg, #030303d9, #03030388 52%, #0303034d),
+      linear-gradient(180deg, #03030325, #03030370 60%, #030303bf);
+  }
+  .home-frame-consolidated .home-section-heading { min-height: 83.59375px; }
+  .home-frame-consolidated .home-section-heading h2.eyebrow {
+    font-size: 8px; line-height: 1.7; letter-spacing: 1.7px;
+  }
+  .archive-wear-transition { inset: -60px -20px auto; height: 295px; }
+  .archive-wear-transition img { width: 82px; opacity: .78; }
+  .archive-wear-transition__left { top: 5px; }
+  .archive-wear-transition__right { top: 45px; }
+  .home-frame-consolidated .home-hero::before { inset: -66px -12px 0; opacity: .24; }
+  .home-frame-consolidated .home-copy::before { content: none; }
+  .home-frame-consolidated .home-logo::before {
+    content: ''; inset: 0; width: auto; height: auto;
+    background: url('bordas/dark-frame-consolidated/orbit-companion.png') center / auto 106% no-repeat;
+    opacity: 1; mix-blend-mode: normal; filter: none;
+    -webkit-mask-image: none; mask-image: none;
+  }
+  .frame-surface-wear {
+    /* Keep the ink outside the narrow cards' existing text padding. */
+    background-position: left -5px center, right -5px center, center top, center bottom;
+    opacity: .86;
+  }
+  .frame-photography .frame-surface-wear { background-position: left -5px top, right -5px bottom, 30% top, 60% bottom; }
+  .frame-collections .frame-surface-wear { background-position: left -5px bottom, right -5px bottom, 65% top, 35% bottom; }
+  .frame-music .frame-surface-wear { background-position: left -5px bottom, right -5px top, 75% top, 70% bottom; }
+  .frame-objects .frame-surface-wear { background-position: left -5px bottom, right -5px top, 25% top, 20% bottom; }
+  .frame-about .frame-surface-wear { background-position: left center, right center, 20% top, 80% bottom; opacity: .80; }
+}

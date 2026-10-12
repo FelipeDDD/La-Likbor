@@ -1,3 +1,5 @@
+@import url('photo-treatment.css');
+
 :root {
   --bg: #080807; --surface: #12100f; --paper: #ded2c2; --muted: #ada093;
   --bronze: #a78a65; --edge: #66503a; --dark-bronze: #35291e;
@@ -76,13 +78,6 @@ nav a::after { content: ''; position: absolute; bottom: 2px; left: 0; right: 3px
 .pic { display: block; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; padding: 0; border: 1px solid #8b7252; position: relative; background: #16130f; cursor: zoom-in; }
 .pic .ambience { position: absolute; inset: -15%; background-position: center; background-size: cover; filter: blur(22px) brightness(.3) saturate(.3); opacity: .8; }
 .pic img { display: block; width: 100%; height: 100%; object-fit: contain; position: relative; transition: filter .25s; }
-.styled .pic img { filter: saturate(.57) contrast(1.14) brightness(.73) sepia(.22); }
-.styled[data-intensity="soft"] .pic img { filter: saturate(.78) contrast(1.07) brightness(.88) sepia(.1); }
-.styled[data-intensity="ritual"] .pic img { filter: saturate(.32) contrast(1.23) brightness(.64) sepia(.36); }
-.styled .pic::after { content: ''; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 60px 12px #0b080899; background: url('grain.svg'); opacity: .42; }
-.styled[data-intensity="soft"] .pic::after { opacity: .22; box-shadow: inset 0 0 35px 5px #0b080866; }
-.styled[data-intensity="ritual"] .pic::after { background: radial-gradient(ellipse at 50% 40%, transparent 38%, #170f0973), url('grain.svg'); opacity: .62; box-shadow: inset 0 0 65px 14px #070604b3; }
-.styled[data-intensity="ritual"] .pic::before { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: url('scratches.svg') left top / 55px auto repeat-y; opacity: .1; mask-image: linear-gradient(90deg, #000, transparent 22%); }
 .photo-label { position: absolute; top: 9px; right: 9px; z-index: 2; width: 30px; height: 30px; display: grid; place-items: center; background: #100d09e8; border: 1px solid #a68a63; color: #d7c4a7; font: 18px/1 var(--font); }
 .original .pic { background: #262321; }
 .original .pic img { filter: none; transition: none; }

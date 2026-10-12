@@ -1,0 +1,68 @@
+/* Shared photographic presentation, extracted from the Shop.
+   .pic keeps the existing body.styled/body.original controls unchanged.
+   Other pages opt in with .photo-treatment and data-photo-view/intensity.
+   Apply to the photo area only; keep captions, icons and borders outside it. */
+.styled .pic,
+.photo-treatment[data-photo-view="styled"] {
+  --photo-saturation: .57;
+  --photo-contrast: 1.14;
+  --photo-brightness: .73;
+  --photo-sepia: .22;
+  --photo-filter: saturate(var(--photo-saturation)) contrast(var(--photo-contrast)) brightness(var(--photo-brightness)) sepia(var(--photo-sepia));
+  --photo-surface: url('grain.svg');
+  --photo-surface-opacity: .42;
+  --photo-vignette: inset 0 0 60px 12px #0b080899;
+}
+.styled[data-intensity="soft"] .pic,
+.photo-treatment[data-photo-view="styled"][data-intensity="soft"] {
+  --photo-saturation: .78;
+  --photo-contrast: 1.07;
+  --photo-brightness: .88;
+  --photo-sepia: .1;
+  --photo-surface-opacity: .22;
+  --photo-vignette: inset 0 0 35px 5px #0b080866;
+}
+.styled[data-intensity="ritual"] .pic,
+.photo-treatment[data-photo-view="styled"][data-intensity="ritual"] {
+  --photo-saturation: .32;
+  --photo-contrast: 1.23;
+  --photo-brightness: .64;
+  --photo-sepia: .36;
+  --photo-surface: radial-gradient(ellipse at 50% 40%, transparent 38%, #170f0973), url('grain.svg');
+  --photo-surface-opacity: .62;
+  --photo-vignette: inset 0 0 65px 14px #070604b3;
+}
+/* Optional neutral adaptation of Ritual. The Shop keeps the exact preset above.
+   Reusable on other dark pages; contrast and the existing textures are retained. */
+.photo-treatment[data-photo-view="styled"][data-intensity="ritual"][data-photo-palette="neutral"] {
+  --photo-saturation: .18;
+  --photo-brightness: .70;
+  --photo-sepia: .04;
+  --photo-surface: radial-gradient(ellipse at 50% 40%, transparent 38%, #0b0b0b73), url('grain.svg');
+  --photo-surface-opacity: .48;
+  --photo-vignette: inset 0 0 65px 14px #070707b3;
+}
+.styled .pic img,
+.photo-treatment[data-photo-view="styled"] > .photo-treatment__image {
+  filter: var(--photo-filter);
+}
+.styled .pic::after,
+.photo-treatment[data-photo-view="styled"]::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  box-shadow: var(--photo-vignette);
+  background: var(--photo-surface); opacity: var(--photo-surface-opacity);
+}
+.styled[data-intensity="ritual"] .pic::before,
+.photo-treatment[data-photo-view="styled"][data-intensity="ritual"]::before {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: url('scratches.svg') left top / 55px auto repeat-y;
+  opacity: .1; mask-image: linear-gradient(90deg, #000, transparent 22%);
+}
+/* An explicit Original component is also available to future product pages.
+   Existing Shop and homepage dialogs already use unfiltered .modal-photo img. */
+.photo-treatment > .photo-treatment__image { object-fit: contain; }
+.photo-treatment[data-photo-view="original"] > .photo-treatment__image {
+  filter: none; opacity: 1; mix-blend-mode: normal; mask-image: none;
+}
+.photo-treatment[data-photo-view="original"]::before,
+.photo-treatment[data-photo-view="original"]::after { content: none; }

@@ -1,0 +1,47 @@
+/* Final visual study; all changes are scoped to this separate page. */
+.home-editorial .home-logo img {
+  /* The glow is in the supplied pixels, not a CSS shadow. Keep the PNG intact. */
+  filter: brightness(.88) saturate(.72);
+}
+.home-editorial .home-copy::after,
+.home-editorial .home-logo::after {
+  background-image: url('hero-orbit-editorial.svg');
+  opacity: .72;
+}
+.home-editorial .home-copy::before {
+  /* Retain the accepted continuous abrasion around the orbit. */
+  opacity: .88;
+}
+
+/* Same panel geometry and image. Tighter editorial rhythm in the dark column. */
+.home-editorial .world-copy .eyebrow { margin-bottom: 14px; }
+.home-editorial .world-copy h2 {
+  line-height: 1.15; letter-spacing: 1.65px; margin-bottom: 18px;
+}
+.home-editorial .world-copy p:not(.eyebrow) { line-height: 1.9; }
+.home-editorial .frame-about .frame-surface-wear {
+  opacity: .78;
+  background-position: left 1px top 18px, right 2px bottom 2px, 15% top 3px, 71% bottom -2px;
+}
+.home-editorial .home-editorial-footer {
+  justify-content: center; padding-block: 28px;
+}
+.home-editorial .home-editorial-footer p {
+  display: block; margin: 0; color: #918b80;
+  font-size: 8px; line-height: 1.8; letter-spacing: 2.6px;
+  text-align: center; text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .home-editorial .home-logo::before { opacity: .8; }
+  .home-editorial .home-logo::after { opacity: .65; }
+  .home-editorial .world-copy .eyebrow { margin-bottom: 11px; }
+  .home-editorial .world-copy h2 { line-height: 1.15; letter-spacing: 1.05px; margin-bottom: 13px; }
+  .home-editorial .world-copy p:not(.eyebrow) { line-height: 1.8; }
+  .home-editorial .frame-about .frame-surface-wear {
+    opacity: .59;
+    background-position: left -4px top 27px, right -4px bottom 4px, 29% top 3px, 79% bottom -2px;
+  }
+  .home-editorial .home-editorial-footer { padding-block: 27px; }
+  .home-editorial .home-editorial-footer p { font-size: 8px; letter-spacing: 2.1px; }
+}

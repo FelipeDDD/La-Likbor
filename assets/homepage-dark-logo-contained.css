@@ -1,0 +1,47 @@
+/* Isolated logo/background study. Keep the hero's entire layout envelope. */
+.home-quiet-logo[data-logo-option="3"] .home-logo img {
+  /* Original 173.76% width and -36.88% left, both multiplied by .88.
+     Shrink the supplied PNG by exactly 12%, anchored at the left of its viewport.
+     The unchanged h1 dimensions preserve the portrait and introduction positions. */
+  width: 152.9088%; left: -32.4544%;
+  filter: brightness(.85) saturate(.72);
+}
+
+/* Remove both desktop/mobile orbit pseudo-elements, including their lunar path.
+   Neither the old orbit nor a replacement geometric/lunar symbol is rendered. */
+.home-quiet-logo .home-copy::after,
+.home-quiet-logo .home-logo::after {
+  content: none; background-image: none;
+}
+
+/* Prepared ink fields only: asymmetric print abrasion, no circular guide.
+   Each distinct image appears once, at its native aspect ratio and without tiling. */
+.home-quiet-logo .home-copy::before {
+  background-image: url('bordas/dark-frame-consolidated/orbit-companion.png'),
+    url('bordas/dark-frame-consolidated/companion-orbit-upper.png'),
+    url('bordas/dark-frame-consolidated/companion-orbit-left.png');
+  background-size: 365px auto, 145px auto, 36px auto;
+  background-position: left -8px top 3px, left 127px top 77px, left 176px top 129px;
+  background-repeat: no-repeat;
+  opacity: .74; filter: none; mix-blend-mode: normal;
+}
+@media (min-width: 701px) and (max-width: 1050px) {
+  .home-quiet-logo .home-copy::before {
+    background-size: 290px auto, 115px auto, 29px auto;
+    background-position: left -6px top 2px, left 100px top 61px, left 139px top 102px;
+  }
+}
+@media (max-width: 700px) {
+  /* Keep the smaller lettering centred within the existing mobile h1. */
+  .home-quiet-logo[data-logo-option="3"] .home-logo img { left: -26.4544%; }
+  .home-quiet-logo .home-copy::before { content: none; }
+  .home-quiet-logo .home-logo::before {
+    background-image: url('bordas/dark-frame-consolidated/orbit-companion.png'),
+      url('bordas/dark-frame-consolidated/companion-orbit-upper.png'),
+      url('bordas/dark-frame-consolidated/companion-orbit-left.png');
+    background-size: auto 106%, 105px auto, 25px auto;
+    background-position: center, 57% 23%, 65% 71%;
+    background-repeat: no-repeat;
+    opacity: .62; filter: none; mix-blend-mode: normal;
+  }
+}

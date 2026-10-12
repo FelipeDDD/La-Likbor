@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none">
+  <defs>
+    <linearGradient id="star-bronze" x1="8" y1="8" x2="48" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#756048"/><stop offset=".45" stop-color="#b6a080"/><stop offset="1" stop-color="#79634c"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#star-bronze)" stroke-width=".85" stroke-linecap="round">
+    <path d="M30 5v50M5 30h50"/>
+    <path d="m14 14 32 32M14 46l32-32" opacity=".65"/>
+  </g>
+  <circle cx="30" cy="30" r=".8" fill="#b6a080" opacity=".7"/>
+</svg>

@@ -1,0 +1,13 @@
+/* Only mounts the shared treatment inside the existing photo area.
+   Geometry, captions, marker and frame remain outside the component. */
+.home-recent-ritual .recent-photo .photo-treatment {
+  position: absolute; inset: 7px; overflow: hidden; isolation: isolate;
+}
+.home-recent-ritual .recent-photo .photo-treatment__image {
+  position: relative; inset: auto; width: 100%; height: 100%;
+  filter: var(--photo-filter); object-fit: contain;
+}
+.home-recent-ritual .photo-treatment:has(> img[hidden]) { display: none; }
+@media (max-width: 700px) {
+  .home-recent-ritual .recent-photo .photo-treatment { inset: 4px; }
+}

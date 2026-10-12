@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Same orbit footprint; interrupted ink instead of a clean double circle.
+       The existing orbit-companion PNG supplies the surrounding paper abrasion. -->
+  <g stroke="#a3947b" stroke-linecap="round" stroke-width=".75">
+    <path d="M44 112c9-17 20-30 33-42m8-6c18-14 37-25 57-32m12-3 17-3m14-2 9-1" opacity=".52"/>
+    <path d="M223 24c18 2 34 5 51 13m8 4 13 8m21 18c19 16 34 36 44 57" opacity=".37"/>
+    <path d="M367 143c4 12 7 22 8 34m2 10 1 12m-2 27c-4 31-15 60-31 82" opacity=".43"/>
+    <path d="M326 329c-21 21-48 36-79 42m-12 3-12 1m-17 2-12-1" opacity=".42"/>
+    <path d="M175 374c-27-5-49-13-69-27m-12-9-15-13M62 307c-17-22-29-48-35-73m-2-13-1-10" opacity=".46"/>
+    <path d="M24 185c1-12 3-24 7-36m4-12 4-10" opacity=".31"/>
+    <!-- Short offset impressions, different lengths and incomplete runs. -->
+    <path d="M95 73c15-11 31-20 47-25M242 39l10 3m20 8 7 4M355 160l3 16M354 262l-4 12M278 351l-12 5M119 337l-7-5M42 232l-2-11" opacity=".27" stroke-width=".55"/>
+    <!-- Fine ink loss and short abrasions near the perimeter, away from lettering. -->
+    <path d="m59 91-2 5m25-28 4-2m51-29 5-1m41-14 3 1m54 4 3 1m64 27 2 3m57 63 1 4m6 49 2 5m-6 43-1 4m-29 82-3 4m-51 42-5 2m-58 10-4-1m-44-3-5-2m-69-32-4-4m-35-66-1-5m-12-42 1-3" opacity=".53" stroke-width=".8"/>
+  </g>
+  <g fill="#b1a28c">
+    <ellipse cx="67" cy="78" rx=".8" ry=".45" opacity=".55"/>
+    <circle cx="73" cy="85" r=".45" opacity=".42"/>
+    <circle cx="128" cy="36" r=".6" opacity=".48"/>
+    <ellipse cx="148" cy="28" rx="1.1" ry=".45" opacity=".43"/>
+    <circle cx="159" cy="34" r=".4" opacity=".34"/>
+    <circle cx="236" cy="29" r=".55" opacity=".44"/>
+    <ellipse cx="269" cy="42" rx=".85" ry=".4" opacity=".47"/>
+    <circle cx="299" cy="59" r=".5" opacity=".33"/>
+    <circle cx="356" cy="133" r=".7" opacity=".48"/>
+    <ellipse cx="377" cy="168" rx=".4" ry=".9" opacity=".41"/>
+    <circle cx="369" cy="246" r=".55" opacity=".47"/>
+    <circle cx="342" cy="304" r=".65" opacity=".48"/>
+    <circle cx="315" cy="328" r=".4" opacity=".35"/>
+    <ellipse cx="273" cy="364" rx=".95" ry=".4" opacity=".53"/>
+    <circle cx="255" cy="359" r=".45" opacity=".36"/>
+    <ellipse cx="183" cy="378" rx=".8" ry=".45" opacity=".42"/>
+    <circle cx="147" cy="363" r=".55" opacity=".35"/>
+    <circle cx="93" cy="338" r=".65" opacity=".49"/>
+    <circle cx="77" cy="308" r=".4" opacity=".33"/>
+    <ellipse cx="31" cy="269" rx=".45" ry=".85" opacity=".52"/>
+    <circle cx="25" cy="191" r=".55" opacity=".47"/>
+    <circle cx="38" cy="139" r=".4" opacity=".36"/>
+  </g>
+  <!-- Small lunar impression in the original top-centre location. No solid fill. -->
+  <g stroke="#bbac95" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M207 54c-10 1-17 9-16 18m2 5c4 6 12 8 19 3M207 54c-6 7-6 17 1 22l4 4" stroke-width="1" opacity=".72"/>
+    <path d="M200 33v8m0 5v2" stroke-width=".6" opacity=".43"/>
+  </g>
+  <circle cx="198" cy="87" r=".6" fill="#bbac95" opacity=".48"/>
+</svg>

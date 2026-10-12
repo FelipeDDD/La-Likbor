@@ -1,0 +1,87 @@
+/* A separate study; consolidated hero, archive geometry and wear are inherited. */
+.home-recent { padding-block: 27px 32px; }
+.recent-heading { display: flex; align-items: center; gap: 22px; margin-bottom: 13px; }
+.recent-heading h2 {
+  flex: none; margin: 0; font-size: 15px; line-height: 1.6;
+  letter-spacing: 3px; font-weight: 400; text-transform: uppercase; color: #d4d0c7;
+}
+.recent-heading__rule {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, #79664b66, #79664b33 72%, #79664b50);
+}
+.recent-heading > a {
+  display: inline-flex; align-items: center; gap: 9px; min-height: 44px;
+  font-size: 9px; letter-spacing: 1.7px; line-height: 1.6;
+  text-transform: uppercase; color: #c1b4a0;
+}
+.recent-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.recent-piece { min-width: 0; display: flex; flex-direction: column; }
+.recent-photo {
+  position: relative; display: grid; width: 100%; aspect-ratio: 1; padding: 7px;
+  border: 1px solid #79664b55; background: #090909; color: #c8c2b7;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+.recent-photo img {
+  display: block; min-width: 0; min-height: 0;
+  position: absolute; inset: 7px; width: calc(100% - 14px); height: calc(100% - 14px);
+  object-fit: contain; filter: saturate(.72) brightness(.83) contrast(1.03);
+  transition: filter .2s ease;
+}
+.recent-photo img[hidden] { display: none; }
+.recent-photo__marker {
+  position: absolute; right: 7px; top: 7px; width: 25px; height: 25px;
+  display: grid; place-items: center; background: #030303b3; color: #c8c2b7; font-size: 18px;
+}
+.recent-photo__error { align-self: center; padding: 10px; font-size: 12px; line-height: 1.7; }
+.recent-photo__error[hidden] { display: none; }
+.recent-piece__info { display: flex; flex-direction: column; flex: 1; padding: 11px 1px 0; }
+.recent-piece h3 {
+  margin: 0 0 4px; font-size: 12px; font-weight: 400; line-height: 1.65;
+  letter-spacing: 1.25px; text-transform: uppercase; color: #d4d0c7;
+}
+.recent-piece__detail { margin: 0 0 5px; color: #a8a49d; font-size: 11px; line-height: 1.65; font-style: italic; }
+.recent-piece__price { margin: auto 0 0; color: #d0cbc2; font-size: 13px; line-height: 1.7; letter-spacing: .4px; }
+.recent-piece a, .recent-heading a { transition: color .2s ease; }
+.home-recent-study .home-about { min-height: 218px; }
+.home-recent-study .archive-preview--world img { filter: saturate(.2) brightness(.88) contrast(.98); }
+.home-recent-study .recent-original { border-color: #79664b; background: #080808; }
+.recent-original .modal-photo { background: #101010; }
+.recent-original .modal-controls button, .recent-original .modal-bottom a { background: #090909; }
+#recent-original-error { text-align: center; padding: 45px 16px; font-size: 13px; line-height: 1.7; }
+.recent-fallback { font-size: 12px; line-height: 1.8; color: #c7c4be; }
+@media (hover: hover) {
+  .recent-photo:hover { border-color: #aa947278; background: #0d0d0d; }
+  .recent-photo:hover img { filter: saturate(.72) brightness(.88) contrast(1.03); }
+  .recent-piece a:hover, .recent-heading a:hover { color: #e2d9c9; }
+  .home-recent-study a.home-fragment:hover .archive-preview { opacity: .95; }
+}
+.recent-photo:focus-visible, .recent-piece a:focus-visible, .recent-heading a:focus-visible {
+  outline: 2px solid #c8b494; outline-offset: 4px;
+}
+.home-recent-study .frame-collections .archive-preview { transition: opacity .2s ease; }
+@media (max-width: 1050px) { .recent-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px) {
+  .home-recent { padding-block: 24px 28px; }
+  .recent-heading { gap: 10px; margin-bottom: 12px; }
+  .recent-heading h2 { font-size: 11px; letter-spacing: 1.7px; }
+  .recent-heading > a { gap: 5px; font-size: 8px; letter-spacing: .7px; }
+  .recent-grid { gap: 22px 12px; }
+  .recent-photo { padding: 4px; }
+  .recent-photo img { inset: 4px; width: calc(100% - 8px); height: calc(100% - 8px); }
+  .recent-photo__marker { right: 5px; top: 5px; width: 22px; height: 22px; font-size: 16px; }
+  .recent-piece__info { padding-top: 10px; }
+  .recent-piece h3 { font-size: 10px; line-height: 1.65; letter-spacing: .65px; }
+  .recent-piece__detail { font-size: 10px; line-height: 1.7; }
+  .recent-piece__price { font-size: 12px; }
+  .home-recent-study .home-about { min-height: 230px; }
+  .recent-original .modal-controls { align-items: flex-start; }
+}
+@media (max-width: 360px) {
+  .recent-heading { gap: 7px; }
+  .recent-heading h2 { font-size: 10px; letter-spacing: 1.2px; }
+  .recent-heading > a { font-size: 8px; letter-spacing: .35px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .recent-photo, .recent-photo img, .recent-piece a, .recent-heading a,
+  .home-recent-study .frame-collections .archive-preview { transition: none; }
+}

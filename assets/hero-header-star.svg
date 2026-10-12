@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 100" fill="none">
+  <defs>
+    <linearGradient id="header-bronze" x1="8" y1="4" x2="47" y2="95" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#756048"/><stop offset=".3" stop-color="#c2ab83"/>
+      <stop offset=".6" stop-color="#927958"/><stop offset="1" stop-color="#675340"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#header-bronze)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 4v17m0 2v32m0 2v19M6 32h18m2 0h10m2 0h16"/>
+    <!-- Unequal crossing strands suggest a binding around the intersection. -->
+    <path d="M21 23c3 2 5 6 9 8.2s7 5.1 9 9.8M39 23c-4 3-5 6-9 9.4S24 38 21 41" stroke-width=".95" opacity=".85"/>
+    <path d="M20.5 25c4 2.2 9 8 16.5 14M37.5 24c-3.5 5-8 9.5-15 15" stroke-width=".7" opacity=".58"/>
+    <path d="M27 28q3-1.5 6 1M26.6 33q3.4 2.5 6.9-.5M27 60h6m-5 7h4M28 7h4" stroke-width=".8" opacity=".65"/>
+  </g>
+  <circle cx="30" cy="32" r=".8" fill="#b89c72" opacity=".55"/>
+</svg>

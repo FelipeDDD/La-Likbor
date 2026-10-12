@@ -1,0 +1,43 @@
+/* Review only: keep the approved page/PNGs intact. Fade side ink locally,
+   retaining the upper/lower ends and the untouched central composition. */
+.home-wear-balanced .continuous-overlay .continuous-wide {
+  mask-image:
+    linear-gradient(180deg, #000 8%, #000000e0 17%, #000000b8 30%, #000000ab 56%, #000000b8 72%, #000000e8 88%, #000 96%),
+    linear-gradient(90deg, transparent 10%, #000 15%, #000 85%, transparent 90%);
+  mask-composite: add;
+}
+/* Continuous connections below the hero: lighter middles, intact ends. */
+.home-wear-balanced .archive-wear-transition img {
+  mask-image: linear-gradient(180deg, #000 8%, #000000c7 26%, #000000b8 55%, #000000d6 79%, #000 96%);
+}
+.home-wear-balanced .hero-upper-wear__side { opacity: .255; }
+
+/* A smaller adjustment on the cards: retain their corner wear and top/base.
+   The second mask keeps the whole interior unattenuated. */
+.home-wear-balanced .home-fragments .frame-surface-wear,
+.home-wear-balanced .frame-about .frame-surface-wear {
+  mask-image:
+    linear-gradient(180deg, #000 12%, #000000eb 33%, #000000e0 61%, #000000eb 82%, #000 94%),
+    linear-gradient(90deg, transparent 9%, #000 15%, #000 85%, transparent 91%);
+  mask-composite: add;
+}
+.home-wear-balanced .world-wear::before { opacity: .34; }
+.home-wear-balanced .world-wear::after { opacity: .29; }
+.home-wear-balanced .world-wear .world-wear__left,
+.home-wear-balanced .world-wear .world-wear__right { opacity: .40; }
+
+@media (max-width: 700px) {
+  /* Native mobile slices stay in place. Different fade stops keep the two
+     sides from losing their already asymmetric character. */
+  .home-wear-balanced .continuous-overlay .continuous-left {
+    mask-image: linear-gradient(180deg, #000 10%, #000000d6 21%, #000000b3 37%, #000000ab 64%, #000000d6 85%, #000 97%);
+  }
+  .home-wear-balanced .continuous-overlay .continuous-right {
+    mask-image: linear-gradient(180deg, #000 8%, #000000dc 23%, #000000b8 44%, #000000b3 70%, #000000e6 89%, #000 98%);
+  }
+  .home-wear-balanced .hero-upper-wear__side { opacity: .165; }
+  .home-wear-balanced .world-wear::before { opacity: .225; }
+  .home-wear-balanced .world-wear::after { opacity: .21; }
+  .home-wear-balanced .world-wear .world-wear__left,
+  .home-wear-balanced .world-wear .world-wear__right { opacity: .26; }
+}

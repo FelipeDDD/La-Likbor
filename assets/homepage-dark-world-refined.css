@@ -1,0 +1,91 @@
+/* Isolated refinement. The approved homepage and its shared styles stay intact. */
+.home-world-refined .home-archive { padding-top: 28px; }
+.home-world-refined .archive-accessible-title {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
+.home-world-refined .home-about {
+  min-height: 270px; padding: 30px 26px 29px; overflow: visible;
+}
+.home-world-refined .home-about.ornate-card {
+  /* Interrupted, quiet support line; the existing ink supplies the edges. */
+  --frame: linear-gradient(137deg, #79664b38, #30292204 18%, #69583f25 35%, #30292202 57%, #79664b2c 81%, #30292206);
+}
+.home-world-refined .world-copy {
+  position: relative; width: 245px; max-width: 100%; text-align: left;
+}
+.home-world-refined .world-copy .eyebrow {
+  margin-bottom: 13px; color: #ab9d87; font-size: 8px;
+  line-height: 1.7; letter-spacing: 2px;
+}
+.home-world-refined .world-copy h2 {
+  margin: 0 0 16px; font-size: 30px; font-weight: 400;
+  line-height: 1.12; letter-spacing: 1.8px; color: #d5d1c8;
+}
+.home-world-refined .world-copy p:not(.eyebrow) {
+  max-width: 225px; font-size: 12px; line-height: 1.85;
+  letter-spacing: .3px; color: #bab7af;
+}
+.home-world-refined .archive-preview--world img {
+  width: 82%; object-position: 50% 24%;
+  /* Keep the approved image treatment: only framing and local fades change. */
+}
+.home-world-refined .archive-preview--world::after {
+  background: url('grain.svg'),
+    linear-gradient(90deg, #030303 2%, #030303f0 19%, #030303ad 29%, #03030338 42%, transparent 55%, transparent 89%, #03030338),
+    linear-gradient(180deg, #03030320, transparent 17%, transparent 77%, #0303036b);
+}
+.home-world-refined .home-about > img { opacity: .35; right: 36px; top: 78px; }
+
+/* Original prepared alpha, native aspect ratios, no tiling or mirrored ink.
+   Staggered long runs and three light fields break the panel's silhouette. */
+.home-world-refined .frame-about .frame-surface-wear {
+  inset: -4px -5px; overflow: visible; opacity: .84;
+  background-size: 24px 250px, 24px 250px, 312px 22px, 312px 22px;
+  background-position: left 1px top 14px, right 2px bottom -3px, 13% top 4px, 73% bottom 1px;
+}
+.home-world-refined .world-wear { position: absolute; inset: 0; z-index: -1; pointer-events: none; user-select: none; }
+.home-world-refined .world-wear img {
+  position: absolute; height: auto; max-width: none; mix-blend-mode: normal;
+  filter: brightness(.8); opacity: .46;
+}
+.home-world-refined .world-wear__left { width: 52px; left: -22px; top: -13px; }
+.home-world-refined .world-wear__right { width: 62px; right: -18px; bottom: -20px; }
+.home-world-refined .world-wear .world-wear__inner { width: 145px; left: 23%; bottom: 11px; opacity: .38; }
+
+@media (min-width: 701px) and (max-width: 1050px) {
+  .home-world-refined .home-about { min-height: 265px; padding-left: 24px; }
+  .home-world-refined .world-copy { width: 225px; }
+  .home-world-refined .world-copy h2 { font-size: 27px; letter-spacing: 1.6px; }
+  .home-world-refined .archive-preview--world img { width: 88%; }
+}
+@media (max-width: 700px) {
+  .home-world-refined .home-archive { padding-top: 24px; }
+  .home-world-refined .home-about { min-height: 290px; padding: 23px 18px 28px; }
+  .home-world-refined .world-copy { width: 184px; }
+  .home-world-refined .world-copy .eyebrow { font-size: 7px; letter-spacing: 1.4px; margin-bottom: 11px; }
+  .home-world-refined .world-copy h2 { font-size: 23px; line-height: 1.12; letter-spacing: 1.1px; margin-bottom: 12px; }
+  .home-world-refined .world-copy p:not(.eyebrow) { max-width: 174px; font-size: 11px; line-height: 1.8; letter-spacing: .15px; }
+  /* A shallow panoramic area retains the woman, moon and coastline together.
+     The copy occupies the black space above; the photo is not globally dimmed. */
+  .home-world-refined .archive-preview--world img {
+    width: 100%; height: 135px; bottom: 0; object-position: 50% 50%;
+    mask-image: linear-gradient(180deg, transparent, #000 26%, #000 93%, #000a);
+  }
+  .home-world-refined .archive-preview--world::after {
+    background: url('grain.svg'),
+      linear-gradient(180deg, #030303 42%, #030303d9 52%, #03030360 61%, transparent 72%, transparent 90%, #03030370),
+      linear-gradient(90deg, #03030355, transparent 22%, transparent 84%, #03030340);
+  }
+  .home-world-refined .home-about > img { top: 34px; right: 21px; opacity: .28; }
+  .home-world-refined .frame-about .frame-surface-wear {
+    opacity: .65;
+    background-position: left -4px top 25px, right -4px bottom 1px, 27% top 4px, 81% bottom 1px;
+    background-size: 20px auto, 20px auto, 230px auto, 230px auto;
+  }
+  .home-world-refined .world-wear img { opacity: .3; }
+  .home-world-refined .world-wear__left { width: 39px; left: -12px; top: -8px; }
+  .home-world-refined .world-wear__right { width: 41px; right: -11px; bottom: -11px; }
+  .home-world-refined .world-wear .world-wear__inner { width: 100px; left: 49%; bottom: 5px; opacity: .23; }
+}

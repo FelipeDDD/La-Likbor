@@ -1,0 +1,137 @@
+/* Independent desktop experiment. The approved foreground and mobile are inherited. */
+.hero-atmosphere { display: none; }
+/* 30% larger than the first occult-logo fit, anchored at its visible left edge.
+   Keep the heading's layout box; allow fine tips to paint beyond that box. */
+.home-two-layers[data-logo-option="3"] .home-logo .occult-logo {
+  width: 192.45382%; left: -39.1119%; top: 50.5%;
+  filter: none;
+}
+/* The supplied asset has an opaque black canvas. Blend only the heading into
+   the hero, letting the existing atmosphere show through without editing PNGs.
+   Lift heading/introduction individually so text/buttons keep normal blending. */
+.home-two-layers .home-copy { isolation: auto; z-index: auto; }
+.home-two-layers .home-logo,
+.home-two-layers .home-introduction { position: relative; z-index: 2; }
+.home-two-layers .home-logo:has(.occult-logo) {
+  mix-blend-mode: screen; overflow: clip; overflow-clip-margin: 80px;
+}
+/* Preserve spacing while making the right ornament smaller and inverted. */
+.home-two-layers .home-motto .hero-right-cross { transform: rotate(180deg) scale(.76); }
+/* A few continuous fields from the existing prepared wear, without tiling.
+   Soft apertures hide the source ends; the lettering remains above the ink. */
+.home-two-layers .hero-upper-wear {
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none; user-select: none;
+}
+.hero-upper-wear > span {
+  position: absolute; overflow: hidden;
+  mask-image: radial-gradient(ellipse at center, #000 12%, #000b 43%, transparent 72%);
+}
+.hero-upper-wear > span::before {
+  content: ''; position: absolute; left: 50%; top: 50%;
+  background-repeat: no-repeat; background-size: contain;
+  filter: brightness(.88) saturate(.8);
+}
+.hero-upper-wear__top {
+  left: 155px; top: -99px; width: 440px; height: 114px; opacity: .56;
+}
+.hero-upper-wear__top::before {
+  width: 90px; height: 450px;
+  background-image: url('bordas/dark-frame-consolidated/reference-wear-enhanced-left.png');
+  transform: translate(-50%, -50%) rotate(82deg);
+}
+.hero-upper-wear__right {
+  right: 0; top: -53px; width: 330px; height: 116px; opacity: .56;
+}
+.hero-upper-wear__right::before {
+  width: 78px; height: 390px;
+  background-image: url('bordas/dark-frame-consolidated/reference-wear-enhanced-right.png');
+  transform: translate(-50%, -50%) rotate(-86deg);
+}
+.hero-upper-wear__logo {
+  left: 60px; top: 26px; width: 370px; height: 152px; opacity: .48;
+}
+.hero-upper-wear__logo::before {
+  width: 110px; height: 330px;
+  background-image: url('bordas/dark-frame-consolidated/transition-right.png');
+  transform: translate(-50%, -50%) rotate(-68deg);
+}
+.hero-upper-wear__side {
+  right: -23px; top: 8px; width: 155px; height: 205px; opacity: .34;
+  mask-image: radial-gradient(ellipse at 56% 45%, #000 25%, #000b 54%, transparent 76%);
+}
+.hero-upper-wear__side::before {
+  width: 110px; height: 330px;
+  background-image: url('bordas/dark-frame-consolidated/reference-wear-enhanced-left.png');
+  background-size: 110px 550px; background-position: center -120px;
+  /* Suppress the source's straight spine, retaining its irregular inward marks. */
+  mask-image: linear-gradient(90deg, transparent 12%, #000 43%, #000 85%, transparent);
+  transform: translate(-50%, -50%) rotate(-14deg);
+}
+@media (max-width: 700px) {
+  .home-two-layers[data-logo-option="3"] .home-logo .occult-logo { left: -46.2712%; }
+  .home-two-layers .home-logo:has(.occult-logo) { overflow-clip-margin: 24px; }
+  .hero-upper-wear__top { left: 32px; top: -85px; width: 230px; height: 76px; opacity: .38; }
+  .hero-upper-wear__top::before { width: 65px; height: 325px; }
+  .hero-upper-wear__right { display: none; }
+  .hero-upper-wear__side { right: -5px; top: 0; width: 65px; height: 190px; opacity: .22; }
+  .hero-upper-wear__side::before { width: 77px; height: 231px; background-size: 77px 385px; background-position: center -84px; }
+  .hero-upper-wear__logo { left: 12px; top: 18px; width: 245px; height: 100px; opacity: .32; }
+  .hero-upper-wear__logo::before { width: 77px; height: 231px; }
+}
+@media (min-width: 701px) {
+  .home-two-layers .hero-atmosphere {
+    display: block; position: absolute; inset: -65px 0 -1px;
+    z-index: -3; overflow: hidden; pointer-events: none; user-select: none;
+    /* Carry the room's shadows through the left column, then retire the diffuse
+       duplicate beneath the sharp scene. No solid left-side black veil. */
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 36%, #000000dc 51%, #0000008c 68%, #00000038 86%, transparent),
+      linear-gradient(180deg, #000 0%, #000 75%, #000000db 86%, #00000061 95%, transparent);
+    mask-image: linear-gradient(90deg, #000 0%, #000 36%, #000000dc 51%, #0000008c 68%, #00000038 86%, transparent),
+      linear-gradient(180deg, #000 0%, #000 75%, #000000db 86%, #00000061 95%, transparent);
+    -webkit-mask-composite: source-in; mask-composite: intersect;
+  }
+  .home-two-layers .hero-atmosphere img {
+    display: block; position: absolute; inset: -24px;
+    width: calc(100% + 48px); height: calc(100% + 48px); max-width: none;
+    /* Use the upper room: the enlarged hand-held candle stays below the crop,
+       avoiding a second bright silhouette underneath the archive buttons. */
+    object-fit: cover; object-position: 50% 0%;
+    /* Treatment affects this background copy only, never the sharp portrait. */
+    filter: contrast(.76) saturate(.18) brightness(.30) blur(8px);
+  }
+  .home-two-layers .hero-atmosphere::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, #0303034d, #03030314 34%, #03030300 58%, #03030338);
+  }
+}
+
+/* Carry existing continuous sleeve wear past the lower panel's side edges.
+   Distinct left/right sources, native aspect ratios, no tiling or mirroring. */
+.home-two-layers .world-wear::before,
+.home-two-layers .world-wear::after {
+  content: ''; position: absolute; pointer-events: none;
+  background-repeat: no-repeat; background-size: contain;
+  filter: brightness(.88) saturate(.8);
+  mask-image: linear-gradient(180deg, transparent, #000 18%, #000 76%, transparent),
+    linear-gradient(90deg, transparent, #000 22%, #000 64%, transparent);
+  mask-composite: intersect;
+}
+.home-two-layers .world-wear::before {
+  left: -40px; top: -40px; width: 72px; height: 360px; opacity: .42;
+  background-image: url('bordas/dark-frame-consolidated/reference-wear-enhanced-left.png');
+  transform: rotate(1.5deg);
+}
+.home-two-layers .world-wear::after {
+  right: -43px; bottom: -66px; width: 84px; height: 420px; opacity: .36;
+  background-image: url('bordas/dark-frame-consolidated/reference-wear-enhanced-right.png');
+  transform: rotate(-2deg);
+}
+@media (max-width: 700px) {
+  .home-two-layers .world-wear::before {
+    left: -12px; top: -22px; width: 40px; height: 200px; opacity: .28;
+  }
+  .home-two-layers .world-wear::after {
+    right: -13px; bottom: -35px; width: 44px; height: 220px; opacity: .26;
+  }
+}
