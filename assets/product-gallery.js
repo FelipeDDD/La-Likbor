@@ -199,4 +199,16 @@ function getProductImages(product) {
   }
   labelGalleryButtons();
   new MutationObserver(labelGalleryButtons).observe(document.getElementById('gallery'), { childList: true });
+
+  // Stable Vinted listing IDs let Home link directly to this existing gallery.
+  // Unknown IDs leave the normal catalog open, without guessing a product.
+  const requestedId = new URLSearchParams(window.location.search).get('product');
+  if (requestedId && /^\d+$/.test(requestedId)) {
+    const index = shopItems.findIndex(item => new URL(item.url).pathname.match(/^\/items\/(\d+)(?:-|$)/)?.[1] === requestedId);
+    const trigger = index < 0 ? null : document.querySelectorAll('#gallery .product > .pic')[index];
+    if (trigger) {
+      trigger.scrollIntoView({ block: 'center', behavior: 'instant' });
+      trigger.click();
+    }
+  }
 })();

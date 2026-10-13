@@ -1,0 +1,34 @@
+/* Quiet interaction for the four archive previews only. Resting wear is unchanged. */
+.home-type-selected a.home-fragment {
+  transition: border-color 250ms ease;
+}
+.home-type-selected .home-fragment > .archive-preview img {
+  transition: filter 250ms ease;
+}
+.home-type-selected a.home-fragment:is(:hover, :focus-visible) {
+  border-color: #a4998433;
+  /* Suppress the legacy hover glow, retaining the normal card shadow. */
+  box-shadow: 0 8px 20px #0008, inset 0 0 0 2px #000;
+}
+.home-type-selected a.home-fragment:is(:hover, :focus-visible) > .archive-preview {
+  opacity: 1;
+}
+.home-type-selected a.home-fragment:is(:hover, :focus-visible) > .archive-preview img {
+  filter: saturate(.25) brightness(.86) contrast(.98);
+}
+.home-type-selected a.home-fragment.frame-collections:is(:hover, :focus-visible) > .archive-preview img {
+  filter: saturate(.16) brightness(.70) contrast(1.03);
+}
+/* Product previews retain their shared Ritual preset, including its colour. */
+.home-type-selected .recent-photo { transition: border-color 250ms ease; }
+.home-type-selected .recent-photo .photo-treatment__image { transition: filter 250ms ease; }
+.home-type-selected .recent-photo:is(:hover, :focus-visible) { border-color: #a4998433; }
+.home-type-selected .recent-photo:is(:hover, :focus-visible) .photo-treatment__image {
+  filter: var(--photo-filter) brightness(1.05);
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-type-selected a.home-fragment,
+  .home-type-selected .home-fragment > .archive-preview img,
+  .home-type-selected .recent-photo,
+  .home-type-selected .recent-photo .photo-treatment__image { transition: none; }
+}

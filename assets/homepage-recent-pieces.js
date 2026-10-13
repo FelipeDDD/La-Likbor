@@ -4,6 +4,12 @@
   const listingIds = ['10202674856', '10304272073', '9564978421', '9486609884'];
   const selection = listingIds.map(id => items.find(item => item.url.includes(`/items/${id}-`))).filter(Boolean);
   const grid = document.getElementById('recent-pieces');
+  // Opt-in routing keeps older studies' original-photo dialog unchanged.
+  const shopDestination = grid.dataset.shopDestination;
+  const productDestination = item => {
+    const id = new URL(item.url).pathname.match(/^\/items\/(\d+)(?:-|$)/)?.[1];
+    return id ? `${shopDestination}?product=${id}` : shopDestination;
+  };
   const modal = document.getElementById('recent-original');
   const original = document.getElementById('recent-original-image');
   const error = document.getElementById('recent-original-error');
@@ -26,11 +32,12 @@
   for (const item of selection) {
     const card = document.createElement('li');
     card.className = 'recent-piece';
-    const photo = document.createElement('button');
-    photo.type = 'button';
+    const photo = document.createElement(shopDestination ? 'a' : 'button');
+    if (shopDestination) photo.href = productDestination(item);
+    else photo.type = 'button';
     photo.className = 'recent-photo';
-    photo.setAttribute('aria-label', `View original photograph: ${item.title}`);
-    photo.setAttribute('aria-haspopup', 'dialog');
+    photo.setAttribute('aria-label', shopDestination ? `View ${item.title} in the Shop gallery` : `View original photograph: ${item.title}`);
+    if (!shopDestination) photo.setAttribute('aria-haspopup', 'dialog');
     const image = document.createElement('img');
     image.src = item.img;
     image.alt = `Vinted photograph of ${item.title}`;
@@ -46,16 +53,18 @@
     marker.setAttribute('aria-hidden', 'true');
     marker.textContent = '⤢';
     photo.append(image, marker, unavailable);
-    photo.addEventListener('click', () => openOriginal(item, photo));
+    if (!shopDestination) photo.addEventListener('click', () => openOriginal(item, photo));
     const info = document.createElement('div');
     info.className = 'recent-piece__info';
     const heading = document.createElement('h3');
     const listing = document.createElement('a');
-    listing.href = item.url;
-    listing.target = '_blank';
-    listing.rel = 'noopener noreferrer';
+    listing.href = shopDestination ? productDestination(item) : item.url;
+    if (!shopDestination) {
+      listing.target = '_blank';
+      listing.rel = 'noopener noreferrer';
+    }
     listing.textContent = item.title;
-    listing.setAttribute('aria-label', `View ${item.title} on Vinted (opens in a new tab)`);
+    listing.setAttribute('aria-label', shopDestination ? `View ${item.title} in the Shop gallery` : `View ${item.title} on Vinted (opens in a new tab)`);
     heading.append(listing);
     const detail = document.createElement('p');
     detail.className = 'recent-piece__detail';
@@ -65,6 +74,10 @@
     price.textContent = item.price;
     info.append(heading, detail, price);
     card.append(photo, info);
+    if (shopDestination) card.addEventListener('click', event => {
+      if (event.target.closest('a') || window.getSelection().toString()) return;
+      window.location.assign(productDestination(item));
+    });
     grid.append(card);
   }
   original.addEventListener('error', () => { original.hidden = true; error.hidden = false; });

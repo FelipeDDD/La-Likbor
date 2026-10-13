@@ -1,0 +1,9 @@
+/* Match the gap's midpoint to the ornament, even with unequal button widths.
+   Imported only by home-dark.html; existing sizes and responsive gaps remain. */
+.home-two-layers .home-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.home-two-layers .home-actions a { width: max-content; }
+.home-two-layers .home-actions a:first-child { justify-self: end; }
+.home-two-layers .home-actions a:last-child { justify-self: start; }

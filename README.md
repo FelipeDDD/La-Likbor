@@ -8,6 +8,11 @@ Site estático pessoal e Shop, sem framework ou etapa de build.
 - **Shop:** [`index.html`](index.html), com seis produtos, filtros de categoria, Styled / Original e intensidades Soft, Strong e Ritual.
 - **Home Dark integrada, para revisão:** [`home-dark.html`](home-dark.html), cópia visual da homepage aprovada com links para o Shop Dark.
 - **Shop Dark consolidado:** [`shop-dark.html`](shop-dark.html), banner B com Laura, Ritual inicial, 12 produtos e galerias com 54 fotografias reais.
+- **Archive Dark, em revisão:** [`archive-dark.html`](archive-dark.html), com Photography, Collections, Records, Objects e Media.
+- **Artigo demonstrativo:** [`records-ten-remain.html`](records-ten-remain.html), Top 10 com seleção provisória, sem atribuir preferências à Laura.
+- **About Dark, em revisão:** [`about-dark.html`](about-dark.html), retrato existente e apresentação neutra do projeto.
+
+Home, Archive, Shop e About Dark agora compartilham os destinos do menu e o rodapé discreto “Personal Archive”. Os quatro cards da Home levam às seções correspondentes do Archive. Dados editáveis do artigo e vídeo: `assets/archive-content.js`. Instruções, pendências e capturas: [`ARCHIVE_ABOUT_DARK.md`](ARCHIVE_ABOUT_DARK.md). Esta rodada editorial não foi commitada nem enviada ao remoto.
 
 Os arquivos `homepage.html` e `index.html` e a entrada `/` permanecem preservados. Para revisar Home ↔ Shop Dark, abra `home-dark.html`. Esta dupla usa o catálogo e controles compartilhados, sem copiar dados. O Shop original continua limitado aos seis produtos iniciais. Relatório e lista do próximo commit: [`SHOP_DARK_RELEASE_REVIEW.md`](SHOP_DARK_RELEASE_REVIEW.md).
 
@@ -32,6 +37,8 @@ node dev-server.mjs
 Encerre com Ctrl+C. Sem `PORT`, o servidor usa 4173. A raiz `/` continua abrindo o Shop. O servidor desativa cache; use Ctrl+F5 caso uma aba antiga mantenha estilos anteriores.
 
 ## Arquivos ativos
+
+Photography tem página própria em `photography-dark.html`, acessível pela capa do Archive e pelo card da Home. Usa 52 fotos selecionadas do Instagram e o arquivo local “Retrato gótico”, totalizando 53 imagens, com quatro categorias e nove galerias. Portraits tem nove fotos e usa o retrato fornecido como primeira imagem/capa. Dados editáveis em `assets/photography-content.js`; organização, fontes e capturas em [PHOTOGRAPHY_ARCHIVE.md](PHOTOGRAPHY_ARCHIVE.md). Revisão local: <http://127.0.0.1:4175/photography-dark.html>.
 
 - `assets/styles.css`: estilos compartilhados e Shop; importa `assets/photo-treatment.css` com os tratamentos fotográficos.
 - `assets/homepage-*.css`: camadas de estilo efetivamente importadas pela homepage, mantidas na ordem atual para preservar o resultado aprovado. Alguns nomes históricos permanecem porque esses arquivos ainda são dependências.

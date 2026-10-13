@@ -27,16 +27,19 @@
   <link rel="stylesheet" href="assets/homepage-dark-wear-scattered.css">
   <link rel="stylesheet" href="assets/homepage-typography.css">
   <link rel="stylesheet" href="assets/homepage-recent-polished.css">
+  <link rel="stylesheet" href="assets/dark-site-shell.css">
+  <link rel="stylesheet" href="assets/homepage-archive-actions.css">
+  <link rel="stylesheet" href="assets/homepage-card-hover.css">
 </head>
 <body class="home-recent-polished home-type-selected home-study home-refined home-dark-hero home-continuous-wear home-frame-consolidated home-recent-study home-recent-ritual home-world-refined home-editorial home-quiet-logo home-two-layers home-wear-balanced home-wear-scattered" data-logo-option="3">
   <a class="skip-link" href="#home">Skip to the homepage</a>
   <div class="page-frame">
-    <header class="site-header">
+    <header class="site-header" id="page-top">
       <nav aria-label="Main navigation">
-        <a href="#home" aria-current="page">Home</a>
-        <a href="#archive">Archive</a>
+        <a href="home-dark.html" aria-current="page">Home</a>
+        <a href="archive-dark.html">Archive</a>
         <a href="shop-dark.html">Shop</a>
-        <a href="#about">About</a>
+        <a href="about-dark.html">About</a>
       </nav>
       <img class="hero-header-sigil" src="assets/hero-header-star.svg" alt="" aria-hidden="true">
     </header>
@@ -67,7 +70,7 @@
           <div class="home-introduction">
             <p>Personal archive.<br>Curated garments, records<br>and selected objects.</p>
             <div class="home-rule" aria-hidden="true"><img src="assets/hero-rule-star.svg" alt=""></div>
-            <div class="home-actions"><a href="#archive">Enter archive <span aria-hidden="true">→</span></a><a href="shop-dark.html">Shop pieces <span aria-hidden="true">→</span></a></div>
+            <div class="home-actions"><a href="archive-dark.html">Enter archive <span aria-hidden="true">→</span></a><a href="shop-dark.html">Shop pieces <span aria-hidden="true">→</span></a></div>
           </div>
         </div>
         <p class="home-motto" aria-hidden="true">A darker<br>world<br>remains.<img class="hero-inverted-sigil hero-right-cross" src="assets/hero-right-cross-etched.svg" alt=""></p>
@@ -79,10 +82,10 @@
         </div>
         <h2 class="archive-accessible-title" id="archive-title">Fragments / The personal archive</h2>
         <div class="home-fragments">
-          <article class="ornate-card home-fragment dark-frame-surface frame-photography"><span class="archive-preview" aria-hidden="true"><img src="assets/placeholders/photography.png" width="1122" height="1402" alt="" loading="lazy" decoding="async"></span><span class="frame-surface-wear" aria-hidden="true"></span><div class="fragment-copy"><div class="fragment-label"><span class="fragment-number">I</span><h3>Photography</h3></div><p>Visual places.<br>Different shadows.</p></div></article>
-          <a class="ornate-card home-fragment dark-frame-surface frame-collections" href="shop-dark.html"><span class="archive-preview" aria-hidden="true"><img src="assets/placeholders/collections.jpg" width="1023" height="1024" alt="" loading="lazy" decoding="async"></span><span class="frame-surface-wear" aria-hidden="true"></span><div class="fragment-copy"><div class="fragment-label"><span class="fragment-number">II</span><h3>Collections</h3></div><p>Garments, records<br>and selected pieces.</p></div></a>
-          <article class="ornate-card home-fragment dark-frame-surface frame-music"><span class="archive-preview" aria-hidden="true"><img src="assets/placeholders/favorite%20music.png" width="1448" height="1086" alt="" loading="lazy" decoding="async"></span><span class="frame-surface-wear" aria-hidden="true"></span><div class="fragment-copy"><div class="fragment-label"><span class="fragment-number">III</span><h3>Favorite Music</h3></div><p>Bands, albums.<br>Sounds that remain.</p></div></article>
-          <article class="ornate-card home-fragment dark-frame-surface frame-objects"><span class="archive-preview" aria-hidden="true"><img src="assets/placeholders/objects.png" width="1448" height="1086" alt="" loading="lazy" decoding="async"></span><span class="frame-surface-wear" aria-hidden="true"></span><div class="fragment-copy"><div class="fragment-label"><span class="fragment-number">IV</span><h3>Objects</h3></div><p>Selected curiosities.<br>A darker life.</p></div></article>
+          <a class="ornate-card home-fragment dark-frame-surface frame-photography" href="photography-dark.html"><span class="archive-preview" aria-hidden="true"><img src="assets/placeholders/photography.png" width="1122" height="1402" alt="" loading="lazy" decoding="async"></span><span class="frame-surface-wear" aria-hidden="true"></span><div class="fragment-copy"><div class="fragment-label"><span class="fragment-number">I</span><h3>Photography</h3></div><p>Visual places.<br>Different shadows.</p></div></a>
+          <a class="ornate-card home-fragment dark-frame-surface frame-collections" href="archive-dark.html#collections"><span class="archive-preview" aria-hidden="true"><img src="assets/placeholders/collections.jpg" width="1023" height="1024" alt="" loading="lazy" decoding="async"></span><span class="frame-surface-wear" aria-hidden="true"></span><div class="fragment-copy"><div class="fragment-label"><span class="fragment-number">II</span><h3>Collections</h3></div><p>Garments, records<br>and selected pieces.</p></div></a>
+          <a class="ornate-card home-fragment dark-frame-surface frame-music" href="archive-dark.html#records"><span class="archive-preview" aria-hidden="true"><img src="assets/placeholders/favorite%20music.png" width="1448" height="1086" alt="" loading="lazy" decoding="async"></span><span class="frame-surface-wear" aria-hidden="true"></span><div class="fragment-copy"><div class="fragment-label"><span class="fragment-number">III</span><h3>Favorite Music</h3></div><p>Bands, albums.<br>Sounds that remain.</p></div></a>
+          <a class="ornate-card home-fragment dark-frame-surface frame-objects" href="archive-dark.html#objects"><span class="archive-preview" aria-hidden="true"><img src="assets/placeholders/objects.png" width="1448" height="1086" alt="" loading="lazy" decoding="async"></span><span class="frame-surface-wear" aria-hidden="true"></span><div class="fragment-copy"><div class="fragment-label"><span class="fragment-number">IV</span><h3>Objects</h3></div><p>Selected curiosities.<br>A darker life.</p></div></a>
         </div>
       </section>
       <section class="home-recent" aria-labelledby="recent-title">
@@ -91,7 +94,7 @@
           <span class="recent-heading__rule" aria-hidden="true"></span>
           <a href="shop-dark.html">View all pieces <span aria-hidden="true">→</span></a>
         </div>
-        <ul class="recent-grid" id="recent-pieces"></ul>
+        <ul class="recent-grid" id="recent-pieces" data-shop-destination="shop-dark.html"></ul>
         <noscript><p class="recent-fallback">Enable JavaScript to view the selected pieces, or <a href="shop-dark.html">visit the Shop</a>.</p></noscript>
       </section>
       <section class="home-about ornate-card texture-layer dark-frame-surface frame-about" id="about" aria-labelledby="about-title" tabindex="-1">
@@ -110,7 +113,7 @@
         <img src="assets/star.svg" alt="" aria-hidden="true">
       </section>
     </main>
-    <footer class="home-editorial-footer"><p>Personal Archive</p></footer>
+    <footer class="home-editorial-footer dark-site-footer"><a class="back-to-top" href="#page-top">↑ Back to top</a><p>Personal Archive</p></footer>
   </div>
   <dialog class="modal recent-original" id="recent-original" aria-labelledby="recent-original-title" aria-describedby="recent-original-note">
     <div class="modal-controls">

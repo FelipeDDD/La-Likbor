@@ -22,6 +22,9 @@ function visit(file, from = 'entrypoint') {
   if (file === 'assets/product-thumbnails.js') {
     for (const match of source.matchAll(/["'](assets\/product-thumbnails\/[^"']+)["']/g)) refs.push('/' + match[1]);
   }
+  if (file === 'assets/photography-content.js') {
+    for (const match of source.matchAll(/["'](assets\/archive\/photography\/[^"']+)["']/g)) refs.push('/' + match[1]);
+  }
   for (const ref of refs) {
     if (/^(?:#|[a-z][a-z\d+.-]*:|\/\/|\$)/i.test(ref)) continue;
     const pathname = decodeURIComponent(ref.split(/[?#]/)[0]);

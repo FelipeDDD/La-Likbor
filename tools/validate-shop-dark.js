@@ -113,7 +113,7 @@ async (page) => {
     check(await page.locator('#recent-pieces > li').count() === 4, 'Homepage preview changed');
     report.menuHome = await page.locator('nav a').first().evaluate(a => { const s = getComputedStyle(a); return { family: s.fontFamily, size: s.fontSize, tracking: s.letterSpacing }; });
     report.homeLinks = await page.locator('a[href]').evaluateAll(a => a.filter(x => /shop|pieces|collections/i.test(x.textContent)).map(x => ({ text: x.textContent.trim(), href: x.getAttribute('href') })));
-    check(report.homeLinks.filter(l => !l.href.startsWith('http')).every(l => l.href === 'shop-dark.html'), 'Homepage Shop destinations');
+    check(report.homeLinks.filter(l => !l.href.startsWith('http')).every(l => /collections/i.test(l.text) ? l.href === 'archive-dark.html#collections' : l.href === 'shop-dark.html'), 'Homepage Shop destinations');
     const localLinks = await page.locator('a[href]').evaluateAll(a => a.filter(x => x.origin === location.origin).map(x => ({ url: x.href, hash: x.hash, missingAnchor: x.pathname === location.pathname && x.hash && !document.getElementById(x.hash.slice(1)) })));
     check(localLinks.every(l => !l.missingAnchor), 'Homepage anchor destination');
     for (const url of new Set(localLinks.map(l => l.url.split('#')[0]))) check((await page.request.get(url)).ok(), 'Local link: ' + url);

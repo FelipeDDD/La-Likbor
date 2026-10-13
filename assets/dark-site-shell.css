@@ -1,0 +1,35 @@
+/* Shared, quiet footer for the Dark pages. Header artwork remains page-specific. */
+body .page-frame > .dark-site-footer {
+  position: relative;
+  display: flex; justify-content: center; align-items: center;
+  min-height: 103px; padding-block: 28px; gap: 20px;
+}
+body .dark-site-footer .back-to-top {
+  position: absolute; left: 0; display: inline-flex; align-items: center;
+  min-height: 44px; color: #b6aa96; font: 10px/1.5 Georgia, serif;
+  letter-spacing: .8px; text-transform: uppercase;
+}
+body .dark-site-footer .back-to-top:hover { color: #d9cfbf; }
+body .dark-site-footer .back-to-top:focus-visible { outline: 2px solid #d9cfbf; outline-offset: 4px; }
+.about-elsewhere { padding: 20px 0 35px; border-top: 1px solid #d9cfbf22; }
+.editorial-dark .about-elsewhere h2 { font-size: 27px; margin: 0 0 12px; }
+.about-elsewhere nav { display: flex; flex-wrap: wrap; gap: 0 28px; }
+.about-elsewhere a { display: inline-flex; align-items: center; min-height: 44px; font: 17px/1.5 var(--editorial); color: #beb6a9; }
+.about-elsewhere a:hover { color: #d9cfbf; }
+body .page-frame > .dark-site-footer p {
+  display: block; margin: 0; color: #b6aa96; opacity: .9;
+  font: 400 11.5px/1.4 'EB Garamond', Georgia, serif;
+  letter-spacing: 2px; text-align: center; text-transform: uppercase;
+}
+@media (max-width: 480px) {
+  body .page-frame > .dark-site-footer { display: grid; grid-template-columns: 1fr; gap: 8px; }
+  body .dark-site-footer .back-to-top { position: static; justify-self: start; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (max-width: 700px) {
+  body .page-frame > .dark-site-footer { padding-block: 27px; }
+  body .page-frame > .dark-site-footer p { font-size: 10.5px; letter-spacing: 1.7px; }
+}
+
+/* Banner labels and titles share the same top anchor as Archive and About. */
+.shop-dark-photo .hero { align-items: flex-start; }

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark"><meta name="theme-color" content="#030303">
+  <meta name="description" content="La Likbør photography: places and travels, music and nights, portraits and fragments.">
+  <title>Photography — La Likbør</title>
+  <link rel="icon" href="assets/star.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css"><link rel="stylesheet" href="assets/homepage-typography.css">
+  <link rel="stylesheet" href="assets/shop-dark.css"><link rel="stylesheet" href="assets/shop-dark-integration.css">
+  <link rel="stylesheet" href="assets/editorial-dark.css"><link rel="stylesheet" href="assets/dark-site-shell.css">
+  <link rel="stylesheet" href="assets/photography.css">
+  <script src="assets/photography-content.js" defer></script><script src="assets/photography.js" defer></script>
+</head>
+<body class="shop-dark editorial-dark photography-dark">
+  <a class="skip-link" href="#photography-main">Skip to photography</a>
+  <div class="page-frame">
+    <header class="site-header" id="page-top">
+      <nav aria-label="Main navigation"><a href="home-dark.html">Home</a><a href="archive-dark.html" aria-current="page">Archive</a><a href="shop-dark.html">Shop</a><a href="about-dark.html">About</a></nav>
+      <a class="wordmark" href="home-dark.html" aria-label="La Likbør — Home">La Likbør</a>
+    </header>
+    <main id="photography-main" tabindex="-1">
+      <header class="editorial-heading"><p class="kicker">Personal archive / Selected photographs</p><h1>Photography</h1><a class="text-link photography-back" href="archive-dark.html#photography">← Back to Archive</a></header>
+      <div class="photography-page-content">
+        <ul class="archive-index photography-index" aria-label="Photography categories">
+          <li><a href="#photography-places" data-photography-category>Places &amp; Travels</a></li>
+          <li><a href="#photography-music" data-photography-category>Music &amp; Nights</a></li>
+          <li><a href="#photography-portraits" data-photography-category>Portraits</a></li>
+          <li><a href="#photography-fragments" data-photography-category>Fragments</a></li>
+        </ul>
+        <div id="photography-categories"></div>
+        <noscript><p class="section-copy">View the photographs on <a class="text-link" href="https://www.instagram.com/la.likbor/" target="_blank" rel="noopener noreferrer">Laura’s Instagram ↗</a>. Enable JavaScript for the selected albums.</p></noscript>
+      </div>
+    </main>
+    <footer class="dark-site-footer"><a class="back-to-top" href="#page-top">↑ Back to top</a><p>Personal Archive</p></footer>
+  </div>
+  <dialog class="photography-gallery" aria-labelledby="photography-gallery-title" aria-describedby="photography-gallery-note">
+    <header class="photography-gallery-header">
+      <div><p class="photography-gallery-category"></p><h2 id="photography-gallery-title"></h2></div>
+      <button class="photography-close" type="button" aria-label="Close photography gallery">Close <span aria-hidden="true">×</span></button>
+    </header>
+    <div class="photography-gallery-content">
+      <div class="photography-stage-row">
+        <button type="button" class="photography-album-previous" aria-label="Previous album" title="Previous album" hidden>←</button>
+        <div class="photography-stage" aria-busy="false"><img class="photography-original" alt="" decoding="async"><p class="photography-error" role="status" hidden>This photograph could not load. You can open its original post below.</p></div>
+        <button type="button" class="photography-album-next" aria-label="Next album" title="Next album" hidden>→</button>
+      </div>
+      <div class="photography-navigation"><button type="button" class="photography-previous" aria-label="Previous photograph">←</button><p class="photography-counter" role="status" aria-live="polite" aria-atomic="true"></p><button type="button" class="photography-next" aria-label="Next photograph">→</button></div>
+      <div class="photography-thumbnails" role="group" aria-label="Select a photograph"></div>
+      <div class="photography-source"><p id="photography-gallery-note">Original colours. Full photographs, without filters.</p><a class="photography-post" target="_blank" rel="noopener noreferrer">View original post ↗</a></div>
+      <details class="photography-caption"><summary>Original post caption</summary><p></p></details>
+    </div>
+  </dialog>
+</body>
+</html>

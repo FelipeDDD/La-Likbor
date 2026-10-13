@@ -1,4 +1,4 @@
-/* The existing Recent Pieces script owns products, links and Original dialog.
+/* The existing Recent Pieces script owns products, links and gallery routing.
    This adapter opts only its four previews into the shared Shop treatment. */
 (() => {
   for (const image of document.querySelectorAll('.recent-photo > img')) {
