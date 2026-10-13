@@ -18,6 +18,10 @@ function visit(file, from = 'entrypoint') {
   }
   for (const match of source.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/g)) refs.push(match[1].trim());
   for (const match of source.matchAll(/(?:@import\s*|\bfrom\s*)["']([^"']+)["']/g)) refs.push(match[1]);
+  // The thumbnail manifest contains root-relative asset paths used dynamically.
+  if (file === 'assets/product-thumbnails.js') {
+    for (const match of source.matchAll(/["'](assets\/product-thumbnails\/[^"']+)["']/g)) refs.push('/' + match[1]);
+  }
   for (const ref of refs) {
     if (/^(?:#|[a-z][a-z\d+.-]*:|\/\/|\$)/i.test(ref)) continue;
     const pathname = decodeURIComponent(ref.split(/[?#]/)[0]);
@@ -27,8 +31,9 @@ function visit(file, from = 'entrypoint') {
     visit(relative(root, target).split(sep).join('/'), file);
   }
 }
-visit('homepage.html');
-visit('index.html');
+// Explicit entries allow reviewing separate Dark pages without changing index.html.
+const entrypoints = process.argv.slice(2);
+for (const entry of entrypoints.length ? entrypoints : ['homepage.html', 'index.html']) visit(entry);
 function walk(directory) {
   return readdirSync(resolve(root, directory), { withFileTypes: true }).flatMap(entry => {
     const path = directory + '/' + entry.name;

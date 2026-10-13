@@ -6,6 +6,10 @@ Site estático pessoal e Shop, sem framework ou etapa de build.
 
 - **Homepage dark aprovada:** [`homepage.html`](homepage.html).
 - **Shop:** [`index.html`](index.html), com seis produtos, filtros de categoria, Styled / Original e intensidades Soft, Strong e Ritual.
+- **Home Dark integrada, para revisão:** [`home-dark.html`](home-dark.html), cópia visual da homepage aprovada com links para o Shop Dark.
+- **Shop Dark consolidado:** [`shop-dark.html`](shop-dark.html), banner B com Laura, Ritual inicial, 12 produtos e galerias com 54 fotografias reais.
+
+Os arquivos `homepage.html` e `index.html` e a entrada `/` permanecem preservados. Para revisar Home ↔ Shop Dark, abra `home-dark.html`. Esta dupla usa o catálogo e controles compartilhados, sem copiar dados. O Shop original continua limitado aos seis produtos iniciais. Relatório e lista do próximo commit: [`SHOP_DARK_RELEASE_REVIEW.md`](SHOP_DARK_RELEASE_REVIEW.md).
 
 A homepage foi consolidada a partir de `homepage-dark-wear-scattered.html`, incluindo o novo logo, desgaste com remoções irregulares, cruz invertida detalhada e botões em bronze discreto. Sua aparência foi preservada. O nome anteriormente indicado como base no README era `homepage-dark-frame-consolidated.html`.
 
@@ -22,6 +26,8 @@ node dev-server.mjs
 
 - Homepage: <http://127.0.0.1:4174/homepage.html>
 - Shop: <http://127.0.0.1:4174/index.html>
+- Home integrada: <http://127.0.0.1:4174/home-dark.html>
+- Shop Dark: <http://127.0.0.1:4174/shop-dark.html>
 
 Encerre com Ctrl+C. Sem `PORT`, o servidor usa 4173. A raiz `/` continua abrindo o Shop. O servidor desativa cache; use Ctrl+F5 caso uma aba antiga mantenha estilos anteriores.
 
@@ -47,6 +53,7 @@ Para comparar localmente, a versão recém-aprovada continua em <http://127.0.0.
 
 ```powershell
 node tools/audit-site-files.mjs
+node tools/audit-site-files.mjs home-dark.html shop-dark.html index.html
 git status --short
 git diff --cached --stat
 ```

@@ -1,0 +1,5 @@
+/* Review-only selection emphasis; approved dimensions and palette are retained. */
+.shop-dark .product-gallery__thumbnail[aria-pressed='true'] {
+  border-color: #d9cfbf;
+  box-shadow: 0 0 0 1px #c0b39b80;
+}

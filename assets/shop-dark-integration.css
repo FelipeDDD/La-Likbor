@@ -1,0 +1,5 @@
+/* Match the approved homepage's compact navigation on the smallest phones.
+   Banner, cards, photographs and all other typography remain unchanged. */
+@media (max-width: 360px) {
+  .shop-dark nav a { font-size: 10px; letter-spacing: 1px; }
+}

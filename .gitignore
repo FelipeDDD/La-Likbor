@@ -82,3 +82,21 @@ node_modules/
 /assets/ritual-color-study.js
 /assets/studies/
 /assets/texture-reference-study.css
+
+# Historical Shop/typography comparisons stay on disk; active Dark pages are
+# home-dark.html and shop-dark.html. No study is deleted by these rules.
+/shop-dark-a.html
+/shop-dark-b.html
+/shop-dark-gallery.html
+/shop-dark-gallery-polished.html
+/SHOP_DARK_STUDY.md
+/SHOP_DARK_GALLERY.md
+/SHOP_DARK_GALLERY_VALIDATION.md
+/SHOP_DARK_B_CONSOLIDATED.md
+/assets/homepage-hero-footer-type-a.css
+/assets/homepage-hero-footer-type-b.css
+/assets/homepage-typography-a.css
+/assets/homepage-typography-b.css
+/assets/fonts/eb-garamond/EBGaramond-italic-variable.ttf
+/tools/validate-homepage-typography.js
+/tools/validate-shop-gallery.js

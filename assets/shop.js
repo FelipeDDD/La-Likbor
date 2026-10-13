@@ -1,4 +1,6 @@
-/* Product data is copied verbatim from references/shop_current.html. No image processing or persistence. */
+/* Shared catalog and controls. The original prototype retains its six products;
+   opt-in Dark pages use the full catalog, without copying data or image processing. */
+const shopItems = document.body.classList.contains('shop-dark') ? items : items.slice(0, 6);
 const gallery = document.getElementById('gallery');
 const modal = document.getElementById('modal');
 const modalImage = document.getElementById('modalImage');
@@ -6,7 +8,7 @@ const modalError = document.getElementById('modalError');
 let photoTrigger;
 
 function render(category = 'all') {
-  const selected = items.filter(item => category === 'all' || item.cat === category);
+  const selected = shopItems.filter(item => category === 'all' || item.cat === category);
   gallery.replaceChildren();
   document.getElementById('resultCount').textContent = `${String(selected.length).padStart(2, '0')} selected ${selected.length === 1 ? 'piece' : 'pieces'}`;
   selected.forEach(item => {
@@ -85,6 +87,8 @@ document.querySelectorAll('[data-filter]').forEach(button => button.addEventList
 }));
 
 function showOriginal(item, trigger) {
+  // Optional gallery pages can handle this request; the original modal remains the fallback.
+  if (!modal.dispatchEvent(new CustomEvent('shop:open-product', { cancelable: true, detail: { item, trigger } }))) return;
   photoTrigger = trigger;
   modalImage.hidden = false;
   modalError.hidden = true;
@@ -106,4 +110,6 @@ modal.addEventListener('close', () => {
   document.body.classList.remove('modal-open');
   photoTrigger?.focus({ preventScroll: true });
 });
+const allCount = document.querySelector('[data-filter="all"] span');
+if (allCount) allCount.textContent = String(shopItems.length).padStart(2, '0');
 render();

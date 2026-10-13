@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#030303">
+  <meta name="description" content="La Likbør — a collection of garments, records and objects from a darker world. A shop design study with original photographs.">
+  <title>Shop Dark — La Likbør</title>
+  <link rel="icon" href="assets/star.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/products.js" defer></script>
+  <script src="assets/shop.js" defer></script>
+  <script src="assets/product-thumbnails.js" defer></script>
+  <script src="assets/product-gallery.js" defer></script>
+  <link rel="stylesheet" href="assets/homepage-typography.css">
+  <link rel="stylesheet" href="assets/shop-dark.css">
+  <link rel="stylesheet" href="assets/product-gallery.css">
+  <link rel="stylesheet" href="assets/product-gallery-polished.css">
+  <link rel="stylesheet" href="assets/shop-dark-integration.css">
+</head>
+<body class="shop-dark shop-dark-photo styled" data-intensity="ritual">
+  <svg class="svg-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><filter id="worn-ink" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".12 .7" numOctaves="2" seed="14" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.3" xChannelSelector="R" yChannelSelector="G"/></filter></defs></svg>
+  <a class="skip-link" href="#shop">Skip to the collection</a>
+  <div class="page-frame">
+    <header class="site-header">
+      <nav aria-label="Main navigation">
+        <a href="home-dark.html">Home</a>
+        <a href="home-dark.html#archive">Archive</a>
+        <a href="#shop" aria-current="page">Shop</a>
+        <a href="home-dark.html#about">About</a>
+      </nav>
+      <a class="wordmark" href="home-dark.html" aria-label="La Likbør — Home">La Likbør</a>
+      <span class="demo-label"><span class="tiny-star" aria-hidden="true">✧</span> Design study / 01</span>
+    </header>
+
+    <main>
+      <section class="hero texture-layer" aria-labelledby="shop-title">
+        <!-- Existing banner B: same photograph, framing and fade as shop-dark-b.html. -->
+        <div class="hero-media" aria-hidden="true"><img src="assets/placeholders/collections.jpg" width="1023" height="1024" alt="" decoding="async" fetchpriority="high"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">La Likbør / Curated pieces</p>
+          <h1 id="shop-title">SHOP</h1>
+          <p class="hero-description">Garments, records and selected<br class="desktop-break"> objects for a darker life.</p>
+          <div class="short-divider" aria-hidden="true"></div>
+        </div>
+        <div class="hero-aside" aria-hidden="true">Places<br>Sounds<br>Faces<br>Things<br>that matter.<img src="assets/star.svg" alt=""></div>
+      </section>
+
+      <section id="shop" class="collection" aria-label="Selected pieces" tabindex="-1">
+        <div class="controls">
+          <div class="categories" role="group" aria-label="Filter by category">
+            <button class="tag active" data-filter="all" aria-pressed="true">All <span>12</span></button>
+            <button class="tag" data-filter="garments" aria-pressed="false">Garments</button>
+            <button class="tag" data-filter="records" aria-pressed="false">Records</button>
+            <button class="tag" data-filter="accessories" aria-pressed="false">Accessories</button>
+          </div>
+          <div class="mode" role="group" aria-label="Photograph presentation">
+            <button class="on" id="styledBtn" aria-pressed="true"><span aria-hidden="true">☾</span> Styled</button>
+            <button id="originalBtn" aria-pressed="false"><span aria-hidden="true">☼</span> Original</button>
+          </div>
+          <label class="intensity">Intensity <select id="intensity" aria-label="Styled intensity"><option value="soft">Soft</option><option value="strong">Strong</option><option value="ritual" selected>Ritual</option></select></label>
+        </div>
+        <div class="collection-meta">
+          <p id="resultCount" role="status" aria-live="polite">12 selected pieces</p>
+          <p class="photo-note">Real pieces. Original photographs always available.</p>
+        </div>
+        <div class="gallery" id="gallery"></div>
+        <noscript><p class="notice">Enable JavaScript to view the twelve pieces and their original Vinted photographs.</p></noscript>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"><span>✧</span></div>
+      <section class="bottom ornate-card texture-layer" aria-labelledby="archive-title">
+        <div class="bottom-copy">
+          <p class="eyebrow">Fragments / The personal archive</p>
+          <h2 id="archive-title">Some things<br>stay with us.</h2>
+          <div class="short-divider" aria-hidden="true"></div>
+          <p>Garments, records and objects that carry<br class="desktop-break"> fragments of a darker world.<br>Real pieces, real photos, real stories.</p>
+          <span class="archive-note">The archive is taking shape.</span>
+        </div>
+        <div class="bottom-aside" aria-hidden="true">A darker<br>world<br>remains.<img src="assets/star.svg" alt=""></div>
+        <div class="moon-phases" aria-hidden="true">☾ &nbsp; ◔ &nbsp; ● &nbsp; ◕ &nbsp; ☽</div>
+      </section>
+    </main>
+
+    <footer>
+      <span class="wordmark">La Likbør</span>
+      <p>Personal archive & curated pieces</p>
+      <span class="footer-study">Shop prototype · No checkout</span>
+    </footer>
+    <p class="notice">Design study with twelve verified Vinted listings. Prices are from the original prototype; availability and current details are on Vinted. Photos load directly from Vinted and may become unavailable.</p>
+  </div>
+
+  <dialog class="modal product-gallery" id="modal" aria-labelledby="modalTitle" aria-describedby="modalNote">
+    <header class="product-gallery__header">
+      <span class="eyebrow">Selected piece / Photographs</span>
+      <button id="closeModal" aria-label="Close product gallery">Close <span aria-hidden="true">×</span></button>
+    </header>
+    <div class="product-gallery__layout">
+      <section class="product-gallery__media" aria-label="Product photographs">
+        <div class="product-gallery__photo pic" aria-busy="false">
+          <img id="modalImage" alt="" decoding="async">
+          <span class="product-gallery__loading" aria-hidden="true">Loading photograph…</span>
+          <p id="modalError" role="status" hidden>Photograph unavailable. Choose another image or view the original listing on Vinted.</p>
+        </div>
+        <div class="product-gallery__navigation">
+          <button id="galleryPrevious" aria-label="Previous photograph">←</button>
+          <span id="galleryCounter" role="status" aria-live="polite" aria-atomic="true">1 / 1</span>
+          <button id="galleryNext" aria-label="Next photograph">→</button>
+        </div>
+        <div id="galleryThumbnails" class="product-gallery__thumbnails" role="group" aria-label="Choose a photograph" hidden></div>
+      </section>
+      <section class="product-gallery__info" aria-label="Product information">
+        <p id="galleryCategory" class="eyebrow"></p>
+        <h2 id="modalTitle"></h2>
+        <p id="galleryDescription" class="type"></p>
+        <p id="galleryPrice" class="price"></p>
+        <div id="galleryPresentation" class="product-gallery__presentation"></div>
+        <p id="modalNote"></p>
+        <a id="modalLink" class="product-gallery__listing" target="_blank" rel="noopener noreferrer">View on Vinted <span aria-hidden="true">↗</span></a>
+      </section>
+    </div>
+  </dialog>
+</body>
+</html>
