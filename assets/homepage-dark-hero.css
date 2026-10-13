@@ -57,6 +57,7 @@
 .home-dark-hero .home-actions a { color: #d0c2af; font-weight: 400; font-size: 9px; letter-spacing: 1.7px; border-color: #998061; background: #0003; }
 .home-dark-hero .home-motto { top: 33%; right: 14px; width: 77px; max-width: 80px; color: #c1ad90; font-size: 9px; font-weight: 400; line-height: 2.15; letter-spacing: 2.3px; text-shadow: 0 1px 8px #0009; }
 .home-dark-hero .home-motto::after { content: ''; position: absolute; left: 0; top: 72px; width: 15px; height: 1px; background: #9b8261; }
+.home-dark-hero .home-motto--text-only::after { content: none; }
 .home-dark-hero .home-motto .hero-inverted-sigil { width: 37px; height: 94px; margin-top: 27px; transform: rotate(180deg); opacity: .88; }
 /* Side scratches stay outside the content column. Extra abrasion in the hero
    is restricted to a narrow strip at each outer edge, away from face/logo. */

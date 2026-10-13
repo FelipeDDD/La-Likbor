@@ -1,0 +1,35 @@
+/* Selected Photography closing artwork; personal photographs are unaffected. */
+.warm-gothic .photography-closing { margin: 0 0 30px; }
+.warm-gothic .photography-closing img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: saturate(.72) hue-rotate(5deg) brightness(.92);
+}
+.warm-gothic .photography-closing-copy { display: none; }
+
+/* Mobile: live text and a quiet light field replace the static panoramas. */
+@media (max-width: 700px) {
+  .warm-gothic.home-study .v2-panorama,
+  .warm-gothic .photography-closing {
+    padding: 26px 20px;
+    background: radial-gradient(ellipse at 76% 44%, #29231b, #080807 78%);
+    border: 1px solid #856b4d38;
+    box-shadow: none;
+  }
+  .warm-gothic.home-study .v2-panorama::before,
+  .warm-gothic.home-study .v2-panorama::after { content: none; }
+  .warm-gothic.home-study .v2-panorama-image,
+  .warm-gothic .photography-closing > img { display: none; }
+  .warm-gothic .photography-closing-copy { display: block; margin: 0; }
+  .warm-gothic .photography-closing-copy .eyebrow {
+    color: #b9a17f; font: 9px/1.7 var(--font); letter-spacing: 1.5px; margin: 0 0 16px;
+  }
+  .warm-gothic .photography-closing-copy h2 {
+    color: var(--paper); font: 400 25px/1.2 var(--font); letter-spacing: 2px;
+    text-transform: uppercase; margin: 0 0 15px;
+  }
+  .warm-gothic .photography-closing-copy > p:not(.eyebrow) {
+    color: #c1b2a0; font: 13px/1.8 var(--font); margin: 0;
+  }
+}

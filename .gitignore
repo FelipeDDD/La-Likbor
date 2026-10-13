@@ -100,3 +100,19 @@ node_modules/
 /assets/fonts/eb-garamond/EBGaramond-italic-variable.ttf
 /tools/validate-homepage-typography.js
 /tools/validate-shop-gallery.js
+
+# V2 comparisons and reconstruction tools remain available locally.
+/v2/reference-original/
+/v2/studies/
+/v2/css/footer-study.css
+/v2/js/footer-study.js
+/v2/js/shop-moon-study.js
+/v2/tools/build-recovered.mjs
+/v2/tools/recover-original.mjs
+/v2/tools/validate-layout.js
+/v2/tools/validate-galleries.js
+/v2/tools/validate-footer-study.js
+/assets/hero-header-astral.svg
+/assets/v2/Imagem ChatGPT 13_10_2026, 20_12_46-2.png
+/assets/v2/Imagem ChatGPT 13_10_2026, 20_12_49-3.png
+/assets/v2/nova 1.png

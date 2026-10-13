@@ -50,6 +50,7 @@
 }
 .shop-dark .hero-description { font-size: 12px; line-height: 1.85; letter-spacing: 1.3px; color: #c7baa6; }
 .shop-dark .short-divider { background: linear-gradient(90deg, #7d7361, #49473d66, transparent); }
+.shop-dark .bottom .short-divider { background: none; }
 .shop-dark .hero-media { display: none; }
 .shop-dark-photo .hero-media {
   display: block; inset: 0 0 0 auto; width: 42%; z-index: 0; background: none;

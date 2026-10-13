@@ -1,0 +1,67 @@
+/* Approved moon treatment and broader brown background. */
+.warm-shop .moon-hero {
+  --moon-opacity: .64;
+  --moon-filter: saturate(.65) hue-rotate(5deg) brightness(.92);
+  --moon-size: auto 110%;
+  --moon-position: right center;
+  --moon-mask: linear-gradient(90deg, transparent 49%, #000 78%, #000 94%, transparent);
+  --moon-mobile-glow: #44331f40;
+  --moon-surface-glow: radial-gradient(ellipse at 51% 47%, #5b42234d, #5b422324 38%, transparent 72%);
+  /* Keep the 1px border's geometry while painting a softer, fading rule. */
+  border-bottom-color: transparent;
+  background: transparent;
+}
+.warm-shop .moon-hero::before {
+  content: ''; inset: auto 0 0; height: 1px; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, transparent, #98794d30 18%, #98794d70 46%, #98794d50 72%, transparent);
+}
+.warm-shop .moon-hero::after {
+  /* Fade the surface into the actual page background at the top, not to black.
+     Keep the brown interior; only the last 24% receives a light lower fade. */
+  z-index: -3; opacity: 1;
+  background: linear-gradient(0deg, #08080780, #08080700 24%),
+    var(--moon-surface-glow),
+    linear-gradient(90deg, #090807, #11100c 65%, #080807);
+  box-shadow: inset 0 0 70px 15px #0002;
+  mask-image: linear-gradient(180deg, transparent, #000 32px);
+}
+.warm-shop .moon-hero .hero-aside { display: none; }
+.warm-shop .moon-hero .hero-media {
+  background-image: url('../../assets/v2/lua-crescente.png');
+  background-size: var(--moon-size);
+  background-position: var(--moon-position);
+  background-repeat: no-repeat;
+  filter: var(--moon-filter);
+  opacity: var(--moon-opacity);
+  mask-image: var(--moon-mask), linear-gradient(180deg, transparent, #000 32px);
+  mask-composite: intersect;
+}
+.warm-shop .moon-hero .hero-media::after {
+  background: linear-gradient(180deg, #08080722, transparent 16%, transparent 74%, #08080728 88%, #08080788);
+}
+@media (min-width: 701px) {
+  /* Let the existing page-frame scratches (z-index: -1) sit above the banner's
+     background (-3) and artwork (-2), without duplicating their texture. */
+  .warm-shop .moon-hero { isolation: auto; overflow: visible; --moon-frame-gutter: 32px; }
+  .warm-shop .moon-hero::after {
+    inset-inline: calc(-1 * var(--moon-frame-gutter));
+    background: url('../../assets/grain.svg'),
+      linear-gradient(0deg, #08080780, #08080700 24%),
+      var(--moon-surface-glow),
+      linear-gradient(90deg, #090807, #11100c 65%, #080807);
+    mask-image: linear-gradient(180deg, transparent, #000 32px),
+      linear-gradient(90deg, transparent, #000 40px, #000 calc(100% - 40px), transparent);
+    mask-composite: intersect;
+  }
+}
+@media (min-width: 701px) and (max-width: 1050px) {
+  .warm-shop .moon-hero { --moon-frame-gutter: 24px; }
+}
+@media (max-width: 700px) {
+  .warm-shop .moon-hero {
+    background: radial-gradient(ellipse at 76% 44%, var(--moon-mobile-glow), transparent 75%), #080807;
+  }
+  .warm-shop .moon-hero::after { background: var(--texture-image); opacity: .22; z-index: -1; mask-image: none; }
+  /* Compact screens use the same quiet illumination vocabulary as a text panel. */
+  .warm-shop .moon-hero .hero-media { display: none; }
+}

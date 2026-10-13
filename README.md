@@ -2,6 +2,17 @@
 
 Site estático pessoal e Shop, sem framework ou etapa de build.
 
+## Versões prontas para revisão
+
+- V1 Dark: [`home-dark.html`](home-dark.html) e [`shop-dark.html`](shop-dark.html).
+- V2 Warm Gothic: [`v2/index.html`](v2/index.html) e [`v2/shop.html`](v2/shop.html).
+- Ambas incluem Archive, Photography, Media/Music, About e o artigo Top 10 demonstrativo.
+- A V2 usa Styled / Strong no Shop; a Dark mantém Ritual. As galerias continuam oferecendo Original.
+
+Com o servidor na porta 4174, abra <http://127.0.0.1:4174/home-dark.html> ou <http://127.0.0.1:4174/v2/index.html>.
+Use o servidor local para carregar as máscaras SVG corretamente. Estudos e capturas permanecem disponíveis localmente, fora deste checkpoint.
+Para conferir dependências das duas versões e as tags históricas preservadas: `node v2/tools/audit-v2.mjs`.
+
 ## Páginas atuais
 
 - **Homepage dark aprovada:** [`homepage.html`](homepage.html).

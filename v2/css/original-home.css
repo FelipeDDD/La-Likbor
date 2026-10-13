@@ -1,0 +1,88 @@
+/* Homepage studies only. The Shop design system is imported unchanged. */
+html { scrollbar-gutter: stable; }
+.home-study .site-header nav a:not([aria-current])::after { background: none; }
+.home-study .site-header nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.home-study .site-header nav a:hover { color: #f2dfc5; }
+.home-study .site-header .wordmark { display: inline-flex; align-items: center; min-height: 44px; font-size: 32px; }
+.home-hero { position: relative; isolation: isolate; min-height: 650px; border-top: 1px solid #6a523644; border-bottom: 1px solid var(--edge); overflow: hidden; background: #080807; }
+.home-portrait { position: absolute; inset: 0 0 0 37%; z-index: -2; }
+.home-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 16%; }
+.home-portrait::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, #080807, #08080780 13%, transparent 37%, transparent 85%, #08080755), linear-gradient(180deg, #08080733, transparent 14%, transparent 76%, #080807); }
+.home-hero::before { content: ''; position: absolute; inset: 0 55% 0 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 50% 40%, #5a3d1817, transparent 70%), url('../../assets/grain.svg'); opacity: .55; }
+.home-copy { width: 53%; padding: 76px 0 72px 44px; }
+/* Display the supplied PNGs directly. Their large transparent side gutters are
+   contained in this viewport; no lettering is redrawn, filtered or cut. Both
+   options have the same visible width, based on their measured alpha bounds. */
+.home-logo { position: relative; width: min(490px, 100%); aspect-ratio: 1173 / 724; overflow: hidden; margin: 0 0 20px; }
+.home-logo img { position: absolute; top: 0; left: -43.90%; width: 185.17%; height: auto; max-width: none; }
+[data-logo-option="3"] .home-logo img { top: 50%; left: -36.88%; width: 173.76%; transform: translateY(-50%); }
+.home-introduction { max-width: 365px; padding-left: 10px; }
+.home-introduction > p { margin: 0; font-size: 11px; line-height: 1.9; letter-spacing: 2.1px; text-transform: uppercase; }
+.home-rule { display: flex; align-items: center; gap: 18px; width: 100%; margin: 18px 0; color: var(--bronze); }
+.home-rule::before, .home-rule::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, #846647, transparent); }
+.home-rule::before { transform: scaleX(-1); }
+.home-rule span { font-size: 25px; line-height: 1; }
+.home-actions { display: flex; gap: 15px; }
+.home-actions a { min-height: 44px; padding: 13px 16px; border: 1px solid #a78a65; background: linear-gradient(180deg, #241b102a, #080807); color: var(--paper); font-size: 9px; line-height: 1.7; letter-spacing: 1.4px; text-transform: uppercase; transition: background .2s, border-color .2s; }
+.home-actions a span { margin-left: 10px; color: #b79a72; }
+.home-actions a:hover { background: #241b10; border-color: #c6ab86; }
+.home-motto { position: absolute; right: 24px; top: 39%; margin: 0; font-size: 9px; line-height: 1.9; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 2px 8px #000; }
+.home-motto img { display: block; width: 32px; height: 68px; margin-top: 15px; }
+.home-section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 27px 0 18px; }
+.home-section-heading .eyebrow { margin: 0; }
+.home-section-heading h2 { margin: 0; font-size: 16px; letter-spacing: 1px; font-weight: 400; }
+.home-fragments { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.home-fragment { min-width: 0; padding: 25px 23px 22px; min-height: 215px; background: url('../../assets/grain.svg') padding-box, radial-gradient(ellipse at 50% 0, #36271770, transparent 68%) padding-box, linear-gradient(#100e0a, #080807) padding-box, var(--frame) border-box; }
+.home-fragment:nth-child(even) { --frame: linear-gradient(145deg, #896d4e, #b29b76 18%, #463428 37%, #937f62 68%, #4c3b29); }
+.fragment-number { display: block; margin-bottom: 22px; color: #b99a6c; font-size: 17px; font-style: italic; }
+.home-fragment h3 { margin: 0 0 9px; font-size: 12px; line-height: 1.5; letter-spacing: 2px; font-weight: 400; text-transform: uppercase; }
+.home-fragment p { margin: 0 0 14px; color: #c0af9b; font-size: 10px; line-height: 1.9; letter-spacing: 1.1px; text-transform: uppercase; }
+.fragment-note { color: #a99478; font-size: 10px; font-style: italic; }
+a.home-fragment:hover { box-shadow: 0 0 18px #a78a6526; }
+.home-about { padding: 30px 36px; min-height: 190px; background: url('../../assets/grain.svg') padding-box, url('../../assets/atmosphere.svg') 85% 50% / 400px auto no-repeat padding-box, linear-gradient(#0b0a08, #080807) padding-box, var(--frame) border-box; }
+.home-about h2 { margin: 0 0 14px; font-size: 28px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
+.home-about p:not(.eyebrow) { max-width: 430px; margin: 0; font-size: 13px; line-height: 1.8; color: #c1b2a0; }
+.home-about > img { position: absolute; width: 38px; height: 90px; top: 50px; right: 48px; opacity: .75; }
+.home-study .footer-study { display: inline-flex; align-items: center; min-height: 44px; }
+@media (max-width: 1050px) and (min-width: 701px) {
+  .home-hero { min-height: 620px; }
+  .home-copy { padding: 75px 0 60px 25px; width: 53%; }
+  .home-logo { margin-bottom: 30px; }
+  .home-introduction { padding-left: 0; }
+  .home-actions { gap: 10px; }
+  .home-actions a { padding-inline: 12px; font-size: 8px; letter-spacing: 1px; }
+  .home-actions a span { margin-left: 5px; }
+  .home-motto { display: none; }
+  .home-fragments { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .home-study .page-frame { padding-inline: 12px; }
+  .home-study .site-header { min-height: 100px; }
+  .home-study .site-header .wordmark { font-size: 29px; }
+  .home-study .site-header nav { gap: 8px; padding-bottom: 3px; }
+  .home-hero { min-height: 0; display: flex; flex-direction: column; }
+  .home-copy { display: contents; }
+  .home-logo { order: 0; width: min(310px, calc(100% - 20px)); margin: 18px auto 8px; }
+  .home-portrait { position: relative; order: 1; inset: auto; width: 100%; max-width: 440px; margin-inline: auto; aspect-ratio: 1440 / 1600; z-index: 0; }
+  .home-portrait img { position: absolute; object-fit: cover; object-position: center top; }
+  .home-portrait::after { background: linear-gradient(180deg, #080807, transparent 13%, transparent 81%, #080807), linear-gradient(90deg, #08080744, transparent 16%, transparent 90%, #08080744); }
+  .home-introduction { order: 2; width: 100%; max-width: none; padding: 8px 12px 24px; text-align: center; }
+  .home-introduction > p { font-size: 9px; letter-spacing: 1.6px; line-height: 1.8; }
+  .home-rule { width: 84%; margin: 10px auto; }
+  .home-actions { justify-content: center; gap: 10px; }
+  .home-actions a { padding: 12px 10px; font-size: 8px; letter-spacing: 1px; }
+  .home-motto { display: none; }
+  .home-section-heading { display: block; padding: 24px 0 17px; }
+  .home-section-heading .eyebrow { margin-bottom: 8px; font-size: 8px; letter-spacing: 1.7px; }
+  .home-section-heading h2 { font-size: 14px; line-height: 1.5; }
+  .home-fragments { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .home-fragment { padding: 23px 13px 17px; min-height: 218px; }
+  .home-fragment h3 { font-size: 10px; letter-spacing: 1px; }
+  .home-fragment p { font-size: 9px; letter-spacing: .6px; }
+  .fragment-note { font-size: 9px; line-height: 1.5; }
+  .home-about { padding: 29px 20px; }
+  .home-about h2 { font-size: 23px; }
+  .home-about p:not(.eyebrow) { max-width: 240px; font-size: 12px; }
+  .home-about > img { width: 22px; height: 60px; top: 42px; right: 15px; }
+}
+@media (max-width: 360px) { .home-fragments { grid-template-columns: 1fr; } .home-fragment { min-height: 190px; } }
