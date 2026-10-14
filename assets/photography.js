@@ -73,6 +73,21 @@
   const close = dialog.querySelector('.photography-close');
   const previousAlbum = dialog.querySelector('.photography-album-previous');
   const nextAlbum = dialog.querySelector('.photography-album-next');
+  const enlarge = element('button', 'photography-enlarge', '');
+  enlarge.type = 'button'; enlarge.hidden = true; enlarge.disabled = true;
+  image.before(enlarge); enlarge.append(image);
+  function setEnlarged(value) {
+    dialog.classList.toggle('photography-gallery--enlarged', value);
+    enlarge.setAttribute('aria-pressed', String(value));
+    enlarge.setAttribute('aria-label', value ? 'Reduce photograph' : 'Enlarge photograph');
+    enlarge.title = value ? 'Click to reduce photograph' : 'Click to enlarge photograph';
+  }
+  setEnlarged(false);
+  enlarge.addEventListener('click', () => setEnlarged(enlarge.getAttribute('aria-pressed') !== 'true'));
+  dialog.addEventListener('cancel', event => {
+    if (enlarge.getAttribute('aria-pressed') !== 'true') return;
+    event.preventDefault(); setEnlarged(false); enlarge.focus({preventScroll:true});
+  });
   const loaded = new Set();
   let album, current = 0, trigger, observer;
   function keepThumbnailVisible() {
@@ -85,6 +100,7 @@
   }
   function loadedImage() {
     image.hidden = false; error.hidden = true;
+    enlarge.hidden = false; enlarge.disabled = false;
     stage.setAttribute('aria-busy', 'false');
     loaded.add(image.getAttribute('src'));
     // One neighbouring full rendition only; all remaining originals stay deferred.
@@ -99,6 +115,7 @@
     if (current === index && image.getAttribute('src') === photo.src && !image.hidden) return;
     current = index;
     image.hidden = true; error.hidden = true; stage.setAttribute('aria-busy', 'true');
+    enlarge.hidden = true; enlarge.disabled = true;
     image.alt = photo.alt || `${album.title} — photograph ${current + 1}`;
     image.src = photo.src;
     counter.textContent = `${current + 1} / ${album.photos.length}`;
@@ -162,6 +179,7 @@
       : [];
   }
   function showAlbum(selectedAlbum) {
+    setEnlarged(false);
     album = selectedAlbum;
     const category = content.categories.find(c => c.id === album.category);
     const title = dialog.querySelector('#photography-gallery-title');
@@ -201,10 +219,11 @@
     requestAnimationFrame(keepThumbnailVisible);
   });
   image.addEventListener('load', loadedImage);
-  image.addEventListener('error', () => { image.hidden = true; error.hidden = false; stage.setAttribute('aria-busy', 'false'); });
+  image.addEventListener('error', () => { image.hidden = true; enlarge.hidden = true; enlarge.disabled = true; error.hidden = false; stage.setAttribute('aria-busy', 'false'); });
   close.addEventListener('click', () => dialog.close());
   previous.addEventListener('click', () => select(current - 1)); next.addEventListener('click', () => select(current + 1));
   dialog.addEventListener('close', () => {
+    setEnlarged(false);
     observer?.disconnect(); document.body.classList.remove('modal-open'); trigger?.focus({preventScroll:true});
   });
   dialog.addEventListener('click', event => {
