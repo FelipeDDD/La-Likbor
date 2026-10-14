@@ -1,0 +1,29 @@
+/* Dark header only; the Warm theme owns its independent presentation. */
+.page-frame > .site-header { position: relative; }
+.site-header .version-switch {
+  position: absolute; right: 144px; top: 50%; transform: translateY(-50%);
+  display: flex; align-items: center; gap: 2px;
+  color: #827e74; font: 10px/1.4 Georgia, serif; letter-spacing: .9px;
+}
+.home-dark-hero .site-header .version-switch { right: 0; }
+.site-header .version-switch a {
+  display: inline-flex; align-items: center; min-height: 34px; padding: 6px;
+  text-transform: uppercase; transition: color 200ms ease;
+}
+.site-header .version-switch a[aria-current='true'] {
+  color: #d9cfbf; text-decoration: underline; text-underline-offset: 4px;
+  text-decoration-color: #9e927c;
+}
+.site-header .version-switch a:hover { color: #e6dccb; }
+@media (max-width: 700px) {
+  .site-header .version-switch {
+    position: static; transform: none; grid-column: 1 / -1; grid-row: 3;
+    justify-self: end; font-size: 11px;
+  }
+  .site-header .version-switch a { min-height: 36px; padding-inline: 8px; }
+  .home-dark-hero .site-header { grid-template-rows: 66px 36px; }
+  .home-dark-hero .site-header .version-switch { grid-row: 2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .version-switch a { transition: none; }
+}

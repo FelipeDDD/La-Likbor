@@ -1,0 +1,29 @@
+/* Warm header only; no Dark presentation is imported. */
+.warm-gothic .site-header { position: relative; }
+.warm-gothic .version-switch {
+  position: absolute; right: 176px; top: 50%; transform: translateY(-50%);
+  display: flex; align-items: center; gap: 2px;
+  color: #98836a; font: 10px/1.4 Georgia, serif; letter-spacing: .9px;
+}
+.warm-gothic .version-switch a {
+  display: inline-flex; align-items: center; min-height: 34px; padding: 6px;
+  text-transform: uppercase; transition: color 200ms ease;
+}
+.warm-gothic .version-switch a[aria-current='true'] {
+  color: #ded2c2; text-decoration: underline; text-underline-offset: 4px;
+  text-decoration-color: #a78a65;
+}
+.warm-gothic .version-switch a:hover { color: #efdfc5; }
+@media (max-width: 1050px) and (min-width: 701px) {
+  .warm-gothic .version-switch { right: 148px; }
+}
+@media (max-width: 700px) {
+  .warm-gothic .version-switch {
+    position: static; transform: none; grid-column: 1 / -1; grid-row: 3;
+    justify-self: end; font-size: 11px;
+  }
+  .warm-gothic .version-switch a { min-height: 36px; padding-inline: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .warm-gothic .version-switch a { transition: none; }
+}
