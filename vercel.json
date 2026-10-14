@@ -3,8 +3,8 @@
   "framework": null,
   "buildCommand": "",
   "outputDirectory": ".",
-  "cleanUrls": false,
-  "rewrites": [
-    { "source": "/", "destination": "/home-dark.html" }
+  "routes": [
+    { "src": "^/$", "dest": "/home-dark.html" },
+    { "handle": "filesystem" }
   ]
 }
